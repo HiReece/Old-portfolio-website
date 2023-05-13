@@ -1,0 +1,11 @@
+:root{
+   --primary-color: #05C6FD;
+   --turquoise-color: #6CE3CF;
+   --light-blue: #c9ffff;
+
+   --container-padding-desktop: 100px;
+   --container-negative-margin-desktop: -100px;
+
+   --container-padding-mobile: 20px;
+   --container-negative-margin-mobile: -20px;
+}

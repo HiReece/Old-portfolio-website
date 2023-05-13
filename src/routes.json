@@ -1,0 +1,24 @@
+{
+    "routes" :{
+        "introduction":{
+            "id": 1,
+            "name":"Who",
+            "link":"#introduction"
+        },
+        "services":{
+            "id": 2,
+            "name":"What",
+            "link":"#services"
+        },
+        "portfolio":{
+            "id": 3,
+            "name":"Portfolio",
+            "link":"#portfolio"
+        },
+        "contact":{
+            "id": 4,
+            "name":"Contact",
+            "link":"#contact"
+        }
+    }
+}
