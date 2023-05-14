@@ -3,25 +3,36 @@ import { useEffect, useState, useRef } from "react"
 import * as layoutStyles from "./Layout.module.css"
 import "../../styles/reset.css"
 import {routes} from "../../routes.json"
-
-import kibisImg from "../../images/kibis_desktop.png"
-import probioticImg from "../../images/probiotic_essence_desktop.png"
-import mendelenemImg from "../../images/mendelenem_desktop.png"
-import tuftingkitImg from "../../images/tuftingkit_desktop.png"
-import kibisImgMobile from "../../images/kibis_mobile.png"
-import probioticImgMobile from "../../images/probiotic_essence_mobile.png"
-import mendelenemImgMobile from "../../images/mendelenem_mobile.png"
-import tuftingkitImgMobile from "../../images/tuftingkit_mobile.png"
-import introImg from "../../images/image04.png"
+import { graphql, useStaticQuery } from "gatsby"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 const Layout = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      allContentfulPortfolioItem(sort: {itemId: ASC}) {
+        nodes {
+          itemId
+          bottomColor
+          description
+          id
+          imageAltText
+          link
+          portfolioItemName
+          techStack
+          topColor
+          desktopImage {
+            gatsbyImageData
+          }
+          mobileImage{
+            gatsbyImageData
+          }
+        }
+      } 
+    } 
+    `
+    )  
 
-  const portfolio = [
-                     {id: 0, description: "Website for a design business based on a design provided by the client", stack: "CSS, HTML", img: kibisImg, imgMobile: kibisImgMobile, img_alt: "Some alt text for img", link: "#", topColor: "#F2F2F2", bottomColor: "#F2F2F2"},
-                     {id: 1, description: "Website for a manufacturing business", stack: "CSS, HTML, JavaScript, React, Frontity, Wordpress", img: probioticImg, imgMobile: probioticImgMobile, img_alt: "Some alt text for img", link: "#", topColor: "#DBDCD6", bottomColor: "#DBDCD6"},
-                     {id: 2, description: "Website for an education business", stack: "CSS, HTML, JavaScript, Wordpress", img: mendelenemImg, imgMobile: mendelenemImgMobile, img_alt: "Some alt text for img", link: "#", topColor: "#F9F7F7", bottomColor: "#173166"},
-                     {id: 3, description: "Blog website", stack: "CSS, HTML, JavaScript, ReactJS, GatsbyJS", img: tuftingkitImg, imgMobile: tuftingkitImgMobile, img_alt: "Some alt text for img", link: "#", topColor: "#FFE7FF", bottomColor: "#FFE7FF"},
-                    ]
+    const portfolio = data.allContentfulPortfolioItem.nodes
 
   const [rotationDegrees, setTopPolygonRotationDegrees] = useState([0,0])
   const [footerPolygonRotationDegrees, setFooterPolygonRotationDegrees] = useState(0)
@@ -43,7 +54,7 @@ const Layout = () => {
       const bodyPosition = document.body.getBoundingClientRect().top
 
       portfolio.map((item)=> {     
-        const topPolygonPosition = refs.current[item.id].getBoundingClientRect().top - bodyPosition
+        const topPolygonPosition = refs.current[item.itemId].getBoundingClientRect().top - bodyPosition
         const footerPolygonPosition = footerPolygonRef.current.getBoundingClientRect().top - bodyPosition
         const topPolygonDegrees = (topPolygonPosition -  window.scrollY) / 40;
         const footerPolygonDegrees = (footerPolygonPosition - 140 -  window.scrollY) / 40;
@@ -51,7 +62,9 @@ const Layout = () => {
         topPolygonDegrees > maxDegreesTop ? filteredTopPolygonDegrees.push(maxDegreesTop) : topPolygonDegrees < 0 ? filteredTopPolygonDegrees.push(0) : filteredTopPolygonDegrees.push(topPolygonDegrees)
         footerPolygonDegrees > maxDegreesTop ? filteredFooterPolygonDegrees = maxDegreesTop : footerPolygonDegrees < 0 ? filteredFooterPolygonDegrees = 0 : filteredFooterPolygonDegrees = footerPolygonDegrees
       })
+
       setTopPolygonRotationDegrees([...filteredTopPolygonDegrees])
+      console.log(rotationDegrees)
       setFooterPolygonRotationDegrees(filteredFooterPolygonDegrees)
 
       // Hide navbar on scroll
@@ -151,14 +164,14 @@ const Layout = () => {
               <h2 className={layoutStyles.text}>Past work:</h2>
               <div className={layoutStyles.portfolio}>
                 {portfolio.map( item => (
-                <div className={layoutStyles.portfolioItem} key={item.id}>
-                  <div className={layoutStyles.topPolygon} style={{transform: `rotate(-${rotationDegrees[item.id]}deg)`, backgroundColor: `${item.topColor}`}} ref={el => refs.current[item.id]= el}></div>
-                  <img className={layoutStyles.portfolioImage} src={windowWidth > 480 ? item.img : item.imgMobile} alt={item.img_alt} />
+                <div className={layoutStyles.portfolioItem} key={item.itemId}>
+                  <div className={layoutStyles.topPolygon} style={{transform: `rotate(-${rotationDegrees[item.itemId-1]}deg)`, backgroundColor: `${item.topColor}`}} ref={el => refs.current[item.itemId]= el}></div>
+                  <GatsbyImage imgClassName={layoutStyles.portfolioImage} className={layoutStyles.portfolioImageWrapper} image={windowWidth > 480 ? item.desktopImage.gatsbyImageData : item.mobileImage.gatsbyImageData} alt={item.imageAltText} />
                   <div className={layoutStyles.bottomPolygon} style={{backgroundColor: `${item.bottomColor}`}}></div>
                   <div className={layoutStyles.portfolioInfoBlock}>
                     <div className={layoutStyles.mainInfo}>
                         <h2 className={`${layoutStyles.portfolioHeading} ${layoutStyles.backgroundBlock}`}>{item.description}</h2>
-                        <p className={`${layoutStyles.portfolioTechStack} ${layoutStyles.backgroundBlock}`}>{item.stack}</p>
+                        <p className={`${layoutStyles.portfolioTechStack} ${layoutStyles.backgroundBlock}`}>{item.techStack}</p>
                     </div>
                       <a className ={`${layoutStyles.portfolioLink} ${layoutStyles.backgroundBlock}`} rel="no-follow" href={item.link}>Check it out -&gt;</a>
                   </div>

@@ -323,15 +323,21 @@ body{
     }
 }
 
-.portfolio-image{
+
+
+.portfolio-image-wrapper{
     margin-left: var(--container-negative-margin-desktop);
     margin-right: var(--container-negative-margin-desktop);
     min-width: calc(100vw - 14px);
     z-index: -1;
 }
 
+.portfolio-image-wrapper .portfolio-image{
+    height: auto;
+}
+
 @media only screen and (max-width: 480px){
-    .portfolio-image{
+    .portfolio-image-wrapper{
         margin-left: var(--container-negative-margin-mobile);
         margin-right: var(--container-negative-margin-mobile);
         min-width: 100vw;
