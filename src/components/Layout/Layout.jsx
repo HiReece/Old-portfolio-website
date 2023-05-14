@@ -41,8 +41,8 @@ const Layout = () => {
   const [isMobileNavOpened, setIsMobileNavOpened] = useState(false)
   const refs = useRef([])
   const footerPolygonRef = useRef()
-  let prevScrollPos = window.scrollY
-  let windowWidth = window.innerWidth;
+  let prevScrollPos = window ? window.scrollY : 0
+  let windowWidth = window ? window.innerWidth : 0;
 
   const toggleMobileNav = () => setIsMobileNavOpened(!isMobileNavOpened)
   
