@@ -329,7 +329,7 @@ body{
     margin-left: var(--container-negative-margin-desktop);
     margin-right: var(--container-negative-margin-desktop);
     min-width: calc(100vw - 14px);
-    z-index: -1;
+    z-index: 0;
 }
 
 .portfolio-image-wrapper .portfolio-image{
@@ -488,4 +488,7 @@ body{
     text-align: center;
 }
 
-
+.scroll-top-icon{
+    height: 30px;
+    width: 30px;
+}
