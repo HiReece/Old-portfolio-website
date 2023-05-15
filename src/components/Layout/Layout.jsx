@@ -200,7 +200,7 @@ const Layout = () => {
                         <h2 className={`${layoutStyles.portfolioHeading} ${layoutStyles.backgroundBlock}`}>{item.description}</h2>
                         <p className={`${layoutStyles.portfolioTechStack} ${layoutStyles.backgroundBlock}`}>{item.techStack}</p>
                     </div>
-                      <a className ={`${layoutStyles.portfolioLink} ${layoutStyles.backgroundBlock}`} rel="no-follow" href={item.link}>Check it out -&gt;</a>
+                      <a className ={`${layoutStyles.portfolioLink} ${layoutStyles.backgroundBlock}`} rel="noreferrer noopener nofollow" href={item.link}>Check it out -&gt;</a>
                   </div>
                 </div>
                 ))}
