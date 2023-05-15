@@ -306,7 +306,7 @@ body{
     position: absolute;
     bottom: -300px;
     width: calc(100vw);
-    height: 400px; 
+    height: 600px; 
     background-color: greenyellow;
     margin-right: var(--container-negative-margin-desktop);
     margin-left: var(--container-negative-margin-desktop);

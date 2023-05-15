@@ -1,10 +1,11 @@
 import * as React from "react"
-import { useEffect, useState, useRef } from "react"
+import { useEffect, useLayoutEffect, useState, useRef } from "react"
 import * as layoutStyles from "./Layout.module.css"
 import "../../styles/reset.css"
 import {routes} from "../../routes.json"
 import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
+
 
 const Layout = () => {
   const data = useStaticQuery(graphql`
@@ -39,14 +40,34 @@ const Layout = () => {
   const [navbarHidden, setNavbarHidden] = useState(false)
   const [navbarAtTheTop, setNavbarAtTheTop] = useState(true)
   const [isMobileNavOpened, setIsMobileNavOpened] = useState(false)
+  const [portfolioImage, setPortfolioImage] = useState("mobileImage")
   const refs = useRef([])
   const footerPolygonRef = useRef()
-  let prevScrollPos = window ? window.scrollY : 0
-  let windowWidth = window ? window.innerWidth : 0;
+  let prevScrollPos = 0
 
   const toggleMobileNav = () => setIsMobileNavOpened(!isMobileNavOpened)
-  
+
+   const [windowWidth, setWindowWidth] = useState(() => {
+    if (typeof window !== "undefined") {
+      return window.innerWidth
+    }
+    return 0
+  })
+
+    // Create a window resize handler function
+  const handleResize = () => {
+    if (typeof window !== "undefined") {
+      setWindowWidth(window.innerWidth);
+    }
+  }
+
   useEffect(() => {
+    setWindowWidth(window.innerWidth);
+    windowWidth > 768 ? setPortfolioImage("desktopImage") : setPortfolioImage("mobileImage");
+  }, [windowWidth])
+
+  useLayoutEffect(() => {
+
     const handleScroll = () => {
       let filteredTopPolygonDegrees = [];
       let filteredFooterPolygonDegrees = 0;
@@ -64,19 +85,25 @@ const Layout = () => {
       })
 
       setTopPolygonRotationDegrees([...filteredTopPolygonDegrees])
-      console.log(rotationDegrees)
       setFooterPolygonRotationDegrees(filteredFooterPolygonDegrees)
 
       // Hide navbar on scroll
       let currentScrollPos = window.scrollY
       currentScrollPos > prevScrollPos && currentScrollPos > 100 ? setNavbarHidden(true) : setNavbarHidden(false) 
-
+      prevScrollPos = window.scrollY
+      
       // Navbar link font gets smaller being lower than x px in scrollY
       window.scrollY > window.innerHeight ? setNavbarAtTheTop(false) : setNavbarAtTheTop(true)
     }
-    window.addEventListener("scroll", handleScroll)
-    return () => {
-      window.removeEventListener("scroll", handleScroll)
+
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", handleScroll)
+      window.addEventListener("resize", handleResize)
+  
+      return () => {
+        window.removeEventListener("resize", handleResize)
+        window.removeEventListener("scroll", handleScroll)
+      };
     }
 
   }, [rotationDegrees])
@@ -166,7 +193,7 @@ const Layout = () => {
                 {portfolio.map( item => (
                 <div className={layoutStyles.portfolioItem} key={item.itemId}>
                   <div className={layoutStyles.topPolygon} style={{transform: `rotate(-${rotationDegrees[item.itemId-1]}deg)`, backgroundColor: `${item.topColor}`}} ref={el => refs.current[item.itemId]= el}></div>
-                  <GatsbyImage imgClassName={layoutStyles.portfolioImage} className={layoutStyles.portfolioImageWrapper} image={windowWidth > 480 ? item.desktopImage.gatsbyImageData : item.mobileImage.gatsbyImageData} alt={item.imageAltText} />
+                  <GatsbyImage imgClassName={layoutStyles.portfolioImage} className={layoutStyles.portfolioImageWrapper} image={item[portfolioImage].gatsbyImageData} alt={item.imageAltText} />
                   <div className={layoutStyles.bottomPolygon} style={{backgroundColor: `${item.bottomColor}`}}></div>
                   <div className={layoutStyles.portfolioInfoBlock}>
                     <div className={layoutStyles.mainInfo}>
