@@ -28,12 +28,16 @@ const Layout = () => {
             gatsbyImageData
           }
         }
-      } 
+      }
+      contentfulPage(name: {eq: "Homepage"}) {
+        ctaLink
+      }
     } 
     `
     )  
 
     const portfolio = data.allContentfulPortfolioItem.nodes
+    const page = data.contentfulPage
 
   const [rotationDegrees, setTopPolygonRotationDegrees] = useState([0,0])
   const [footerPolygonRotationDegrees, setFooterPolygonRotationDegrees] = useState(0)
@@ -200,7 +204,7 @@ const Layout = () => {
                         <h2 className={`${layoutStyles.portfolioHeading} ${layoutStyles.backgroundBlock}`}>{item.description}</h2>
                         <p className={`${layoutStyles.portfolioTechStack} ${layoutStyles.backgroundBlock}`}>{item.techStack}</p>
                     </div>
-                      <a className ={`${layoutStyles.portfolioLink} ${layoutStyles.backgroundBlock}`} rel="noreferrer noopener nofollow" href={item.link}>Check it out -&gt;</a>
+                      <a className ={`${layoutStyles.portfolioLink} ${layoutStyles.backgroundBlock}`} rel="noreferrer noopener nofollow" href={item.link} target="_blank">Check it out -&gt;</a>
                   </div>
                 </div>
                 ))}
@@ -219,7 +223,7 @@ const Layout = () => {
               <div className={layoutStyles.ctaContainer}>
                 <div className={layoutStyles.topPolygon} style={{transform: `rotate(-${footerPolygonRotationDegrees}deg)`,  backgroundColor: "#EA549E"}} ref={el => footerPolygonRef.current = el}></div>
                 <p className={layoutStyles.ctaHeading}>Let's create</p>
-                <a className={layoutStyles.ctaButton} href="#" rel="nofollow">Upwork profile</a>
+                <a className={layoutStyles.ctaButton} href={page.ctaLink} rel="nofollow">Upwork profile</a>
               </div>
             </footer>
           </main>
