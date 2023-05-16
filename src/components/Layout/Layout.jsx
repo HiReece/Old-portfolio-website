@@ -169,7 +169,7 @@ const Layout = () => {
               <ul className={layoutStyles.techStackBanner}>
                 {bannerImages.map(bannerImage => (
                   <li className={layoutStyles.techStackBannerItem}>
-                    <GatsbyImage imgClassName={layoutStyles.bannerImage} className={layoutStyles.bannerImageWrapper} image={ bannerImage.gatsbyImageData} alt={bannerImage.description} />
+                    <GatsbyImage imgClassName={layoutStyles.bannerImage} className={layoutStyles.bannerImageWrapper} image={ bannerImage.gatsbyImageData} alt={bannerImage.description} loading="eager"/>
                   </li>
                 ))
                 }
