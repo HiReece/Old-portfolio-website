@@ -48,16 +48,6 @@ body{
     height: 100vh;
 }
 
-.navbar-hidden{
-    top: -100px;
-}
-
-@media only screen and (max-width: 1024px){
-    .navbar-hidden{
-        top: 0;
-    }
-}
-
 .navbar-links{
     display: flex;
     list-style-type: none;
@@ -94,6 +84,10 @@ body{
     background-color: pink;
 }
 
+.navbar-link-item:active{
+    background-color: black;
+}
+
 @media only screen and (max-width: 1024px){
     .navbar-link-item{
         background-color: transparent;
@@ -120,6 +114,10 @@ body{
     padding: 10px 20px;
 }
 
+.navbar-link:active{
+    color: pink;
+}
+
 .menu-button{
     cursor: pointer;
     display: none;
@@ -129,6 +127,7 @@ body{
     position: fixed;
     top: 30px;
     right: 30px;
+    transition: top 0.4s;
 }
 
 @media only screen and (max-width: 1024px){
@@ -168,6 +167,14 @@ body{
     stroke-width: 2px;
     vertical-align: top;
 }
+
+.item-hidden{
+    top: -100px;
+    transition: top 0.4s;
+}
+
+
+
 .hero-container{
     display: flex;
     height: 90vh;
@@ -212,6 +219,7 @@ body{
     .tech-stack-banner-container{
         margin-left: var(--container-negative-margin-mobile);
         margin-right: var(--container-negative-margin-mobile);
+        width: 400%;
     }
 }
 
@@ -242,9 +250,20 @@ body{
         from {
             left: 0;
         } to {
-            left: calc(-100% - 40px);
+            left: calc(-200% - 40px);
         }
     }
+}
+
+.banner-image-wrapper{
+    width: auto;
+    height: 80px;
+}
+
+.banner-image-wrapper .banner-image{
+    object-fit: contain;
+    height: 80px;
+    width: auto;
 }
 
 .decoration{
@@ -403,10 +422,15 @@ body{
     .portfolio-info-block{
         align-items: flex-start;
         flex-direction: column;
-        margin-left: var(--container-negative-margin-mobile);
-        margin-right: var(--container-negative-margin-mobile);
         padding-left: 6px;
         padding-right: 6px;
+    }
+}
+
+@media only screen and (max-width: 480px){
+    .portfolio-info-block{
+        margin-left: var(--container-negative-margin-mobile);
+        margin-right: var(--container-negative-margin-mobile);
     }
 }
 
@@ -486,6 +510,14 @@ body{
     margin-top: 20vh;
 }
 
+
+@media only screen and (max-width: 480px){
+    .cta-container{
+        margin-top: 0;
+        justify-content: center;
+    }
+}
+
 .cta-heading{
     font-size: 80px;
     font-weight: 700;
@@ -519,11 +551,13 @@ body{
     cursor: pointer;
 }
 
+.scroll-to-top-container:hover{
+    background-color: black;
+}
+
 .scroll-to-top{
     display: block;
     text-decoration: none;
-    color: black;
-    padding: 10px;
     height: 40px;
     width: 40px;
     font-size: 24px;
@@ -531,7 +565,16 @@ body{
     text-align: center;
 }
 
+
 .scroll-top-icon{
-    height: 30px;
-    width: 30px;
+    padding: 10px;
+    fill: black;
+}
+
+.scroll-top-icon:hover{
+    fill: #c9ffff;
+}
+
+.scroll-top-icon:active{
+    fill: pink;
 }

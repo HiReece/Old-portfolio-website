@@ -26,18 +26,23 @@ const Layout = () => {
           }
           mobileImage{
             gatsbyImageData
+            description
           }
         }
       }
       contentfulPage(name: {eq: "Homepage"}) {
         ctaLink
+        bannerImages {
+          gatsbyImageData
+        }
       }
     } 
     `
     )  
 
-    const portfolio = data.allContentfulPortfolioItem.nodes
-    const page = data.contentfulPage
+  const portfolio = data.allContentfulPortfolioItem.nodes
+  const page = data.contentfulPage
+  const bannerImages = data.contentfulPage.bannerImages
 
   const [rotationDegrees, setTopPolygonRotationDegrees] = useState([0,0])
   const [footerPolygonRotationDegrees, setFooterPolygonRotationDegrees] = useState(0)
@@ -47,7 +52,7 @@ const Layout = () => {
   const [portfolioImage, setPortfolioImage] = useState("mobileImage")
   const refs = useRef([])
   const footerPolygonRef = useRef()
-  let prevScrollPos = 0
+  let [prevScrollPos, setPrevScrollPos] = useState(0)
 
   const toggleMobileNav = () => setIsMobileNavOpened(!isMobileNavOpened)
 
@@ -94,7 +99,8 @@ const Layout = () => {
       // Hide navbar on scroll
       let currentScrollPos = window.scrollY
       currentScrollPos > prevScrollPos && currentScrollPos > 100 ? setNavbarHidden(true) : setNavbarHidden(false) 
-      prevScrollPos = window.scrollY
+      setPrevScrollPos(currentScrollPos)
+
       
       // Navbar link font gets smaller being lower than x px in scrollY
       window.scrollY > window.innerHeight ? setNavbarAtTheTop(false) : setNavbarAtTheTop(true)
@@ -114,7 +120,7 @@ const Layout = () => {
  
     return (
         <div className={layoutStyles.container}>
-          <div className={`${layoutStyles.navbarContainer} ${navbarHidden ? layoutStyles.navbarHidden : ""} ${isMobileNavOpened ? layoutStyles.navbarContainerFullHeight : ""}`}>
+          <div className={`${layoutStyles.navbarContainer} ${navbarHidden ? layoutStyles.itemHidden : ""} ${isMobileNavOpened ? layoutStyles.navbarContainerFullHeight : ""}`}>
             <ul className={`${layoutStyles.navbarLinks} ${isMobileNavOpened ? layoutStyles.navOpened : ""}`}>
               {Object.keys(routes).map( route => (
                 <li className={`${layoutStyles.navbarLinkItem} ${isNavbarAtTheTop ? layoutStyles.navbarAtTheTop : ""}`} onClick={isMobileNavOpened ? toggleMobileNav : null} key={routes[route].id}>
@@ -131,7 +137,7 @@ const Layout = () => {
                     <g id="cross"><line className={layoutStyles.iconStroke} x1="7" x2="25" y1="7" y2="25"/><line className={layoutStyles.iconStroke} x1="7" x2="25" y1="25" y2="7"/></g>
                   </svg>
                 </button> :
-                <button className={layoutStyles.menuButton} onClick={toggleMobileNav}>
+                <button className={`${layoutStyles.menuButton} ${navbarHidden ? layoutStyles.itemHidden : ""}`} onClick={toggleMobileNav}>
                   <svg className={layoutStyles.menuIcon} viewBox="0 0 24 24" >
                     <line x1="3" x2="21" y1="12" y2="12"/><line x1="3" x2="21" y1="6" y2="6"/><line x1="3" x2="21" y1="18" y2="18"/>
                   </svg>
@@ -161,18 +167,20 @@ const Layout = () => {
             <div className={layoutStyles.techStackBannerWrapper}>
             <div className={layoutStyles.techStackBannerContainer}>
               <ul className={layoutStyles.techStackBanner}>
-                <li className={layoutStyles.techStackBannerItem}>CSS</li>
-                <li className={layoutStyles.techStackBannerItem}>HTML</li>
-                <li className={layoutStyles.techStackBannerItem}>Javascript</li>
-                <li className={layoutStyles.techStackBannerItem}>ReactJS</li>
-                <li className={layoutStyles.techStackBannerItem}>GatsbyJS</li>
+                {bannerImages.map(bannerImage => (
+                  <li className={layoutStyles.techStackBannerItem}>
+                    <GatsbyImage imgClassName={layoutStyles.bannerImage} className={layoutStyles.bannerImageWrapper} image={ bannerImage.gatsbyImageData} alt={bannerImage.description} />
+                  </li>
+                ))
+                }
               </ul>
               <ul className={`${layoutStyles.techStackBanner} ${layoutStyles.techStackBannerSecond}`}>
-                <li className={layoutStyles.techStackBannerItem}>CSS</li>
-                <li className={layoutStyles.techStackBannerItem}>HTML</li>
-                <li className={layoutStyles.techStackBannerItem}>Javascript</li>
-                <li className={layoutStyles.techStackBannerItem}>ReactJS</li>
-                <li className={layoutStyles.techStackBannerItem}>GatsbyJS</li>
+                {bannerImages.map(bannerImage => (
+                  <li className={layoutStyles.techStackBannerItem}>
+                    <GatsbyImage imgClassName={layoutStyles.bannerImage} className={layoutStyles.bannerImageWrapper} image={ bannerImage.gatsbyImageData} alt={bannerImage.description} />
+                  </li>
+                ))
+                }
               </ul>
             </div>
             </div>
@@ -221,8 +229,8 @@ const Layout = () => {
 
             {!isMobileNavOpened && !isNavbarAtTheTop ? <div className={layoutStyles.scrollToTopContainer}>
               <a className={layoutStyles.scrollToTop} href="#hero">
-              <svg className={layoutStyles.scrollTopIcon} viewBox="0 5 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 3C12.2652 3 12.5196 3.10536 12.7071 3.29289L19.7071 10.2929C20.0976 10.6834 20.0976 11.3166 19.7071 11.7071C19.3166 12.0976 18.6834 12.0976 18.2929 11.7071L13 6.41421V20C13 20.5523 12.5523 21 12 21C11.4477 21 11 20.5523 11 20V6.41421L5.70711 11.7071C5.31658 12.0976 4.68342 12.0976 4.29289 11.7071C3.90237 11.3166 3.90237 10.6834 4.29289 10.2929L11.2929 3.29289C11.4804 3.10536 11.7348 3 12 3Z" fill="#000000"/>
+              <svg className={layoutStyles.scrollTopIcon} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 3C12.2652 3 12.5196 3.10536 12.7071 3.29289L19.7071 10.2929C20.0976 10.6834 20.0976 11.3166 19.7071 11.7071C19.3166 12.0976 18.6834 12.0976 18.2929 11.7071L13 6.41421V20C13 20.5523 12.5523 21 12 21C11.4477 21 11 20.5523 11 20V6.41421L5.70711 11.7071C5.31658 12.0976 4.68342 12.0976 4.29289 11.7071C3.90237 11.3166 3.90237 10.6834 4.29289 10.2929L11.2929 3.29289C11.4804 3.10536 11.7348 3 12 3Z" />
               </svg>
               </a>
             </div>:""}
