@@ -178,22 +178,24 @@ const Layout = () => {
                           <div className={layoutStyles.contentRow}>
                             <div className={`${layoutStyles.rectangle} ${layoutStyles.bgColorBlueJeans}`}></div>
                           </div>
-                          <div className={layoutStyles.contentRow}>
-                            <div className={layoutStyles.circleContainer}>
-                              <div className={`${layoutStyles.circle} ${layoutStyles.bgColorFrenchSkyBlue}`}></div>
+                          <div className={layoutStyles.flippedOnMobile}>
+                            <div className={`${layoutStyles.contentRow} ${layoutStyles.rowFlippedOnMobile}`}>
+                              <div className={`${layoutStyles.circleContainer} ${layoutStyles.notDisplayedOnMobile}`}>
+                                <div className={`${layoutStyles.circle} ${layoutStyles.bgColorFrenchSkyBlue}`}></div>
+                              </div>
+                              <div className={`${layoutStyles.circleContainer} ${layoutStyles.notDisplayedOnMobile}`}>
+                                <div className={`${layoutStyles.circle} ${layoutStyles.bgColorBlueJeans}`}></div>
+                              </div>
+                              <div className={layoutStyles.circleContainer}>
+                                <div className={`${layoutStyles.circle} ${layoutStyles.bgColorFrenchSkyBlue}`}></div>
+                              </div>
+                              <div className={layoutStyles.circleContainer}>
+                                <div className={`${layoutStyles.circle} ${layoutStyles.bgColorBlueJeans}`}></div>
+                              </div>
                             </div>
-                            <div className={layoutStyles.circleContainer}>
-                              <div className={`${layoutStyles.circle} ${layoutStyles.bgColorBlueJeans}`}></div>
+                            <div className={`${layoutStyles.contentRow} ${layoutStyles.contentRowJustifyEnd}`}>
+                              <div className={`${layoutStyles.rectangle} ${layoutStyles.bgColorBabyBlueEyes}`}></div>
                             </div>
-                            <div className={layoutStyles.circleContainer}>
-                              <div className={`${layoutStyles.circle} ${layoutStyles.bgColorFrenchSkyBlue}`}></div>
-                            </div>
-                            <div className={layoutStyles.circleContainer}>
-                              <div className={`${layoutStyles.circle} ${layoutStyles.bgColorBlueJeans}`}></div>
-                            </div>
-                          </div>
-                          <div className={`${layoutStyles.contentRow} ${layoutStyles.contentRowJustifyEnd}`}>
-                          <div className={`${layoutStyles.rectangle} ${layoutStyles.bgColorBabyBlueEyes}`}></div>
                           </div>
                         </div>
                       </div>
@@ -224,27 +226,28 @@ const Layout = () => {
             </div>
             </div>
       
-            <section className={layoutStyles.introductionContainer} id="introduction">
+            <section className={layoutStyles.introductionContainer}>
               <div className={`${layoutStyles.bgCircle} ${layoutStyles.introductionCircle} ${layoutStyles.bgColorBabyBlueEyes}`}></div>
-              <div className={layoutStyles.introduction}>
-                <div className={layoutStyles.introImageContainer}>
-                  <GatsbyImage className={layoutStyles.introImage} image={page.authorImage.gatsbyImageData} alt="An image of the author" />
-                </div>
+              <div className={layoutStyles.introduction} id="introduction">
                 <div className={layoutStyles.textContainer}>
+                <div className={`${layoutStyles.bgCircle} ${layoutStyles.introductionTinyCircle} ${layoutStyles.bgColorSkyBlueCrayola} ${layoutStyles.displayedOnMobile}`}></div>
+                  <div className={layoutStyles.introImageContainer}>
+                    <GatsbyImage className={layoutStyles.introImage} image={page.authorImage.gatsbyImageData} alt="An image of the author" loading="lazy" />
+                  </div>
                   <p className={layoutStyles.text}>Name is Rytis.</p>
                   <h2 className={`${layoutStyles.text}`}>I create <span className={`${layoutStyles.underline}`}>elegant</span><br /><b className={layoutStyles.textBrightGreen}>digital products</b></h2>
                 </div>
               </div>
               <div className={layoutStyles.bendyLine}>
-                <svg width="136" height="709" viewBox="0 0 136 709" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg viewBox="0 0 136 709" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M67.7244 5C20.3911 73.5 -45.8756 239.8 67.7244 357C181.324 474.2 115.058 637.167 67.7244 704" stroke="#333333" stroke-width="10" stroke-linecap="round"/>
                 </svg>
               </div>
               <div className={`${layoutStyles.bgCircle} ${layoutStyles.introductionBottomCircle} ${layoutStyles.bgColorSkyBlueCrayola}`}></div>
             </section>
       
-            <section className={layoutStyles.serviceContainer} id="services">
-              <div className={layoutStyles.service}>
+            <section className={layoutStyles.serviceContainer}>
+              <div className={layoutStyles.service} id="services">
                 <div className={layoutStyles.serviceTextContainer}>
                   <h2 className={layoutStyles.text}>I <b>do</b>:</h2>
                   <ul className={layoutStyles.serviceList}>
