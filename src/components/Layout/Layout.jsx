@@ -35,6 +35,9 @@ const Layout = () => {
         bannerImages {
           gatsbyImageData
         }
+        authorImage{
+          gatsbyImageData
+        }
       }
     } 
     `
@@ -50,6 +53,8 @@ const Layout = () => {
   const [isNavbarAtTheTop, setNavbarAtTheTop] = useState(true)
   const [isMobileNavOpened, setIsMobileNavOpened] = useState(false)
   const [portfolioImage, setPortfolioImage] = useState("mobileImage")
+  const greetings = ["hello", "labas", "bonjour", "hallo", "ciao", "привіт", "hola", "habari", "こんにちは", "witam", "ahoj", "tere", "hallå", "hei", "你好", "merhaba"]
+  const [greetingIndex, setGreetingIndex] = useState(0)
   const refs = useRef([])
   const footerPolygonRef = useRef()
   let [prevScrollPos, setPrevScrollPos] = useState(0)
@@ -74,6 +79,16 @@ const Layout = () => {
     setWindowWidth(window.innerWidth);
     windowWidth > 768 ? setPortfolioImage("desktopImage") : setPortfolioImage("mobileImage");
   }, [windowWidth])
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setGreetingIndex((greetingIndex) =>
+      greetingIndex + 1 >= greetings.length ? 0 : greetingIndex + 1
+      );
+    }, 6000);
+  
+    return () => clearInterval(interval);
+  }, []);
 
   useLayoutEffect(() => {
 
@@ -150,15 +165,39 @@ const Layout = () => {
               <div className={layoutStyles.heroHeadingContainer}>
                 <h1 className={layoutStyles.heroHeading}>
                   Say<br />
-                  <span>hello</span><br />
+                  <span className={layoutStyles.greeting}>{greetings[greetingIndex]}</span><br />
                   to your<br />
-                  new <span>website</span>
+                  <span>new website</span>
                 </h1>
               </div>
               <div className={layoutStyles.heroAnimationContainer}>
                 <div className={layoutStyles.illustrationContainer}>
-                    <div className={layoutStyles.illustrationBase}>
-
+                    <div className={layoutStyles.illustrationBaseContainer}>
+                      <div className={layoutStyles.illustrationBase}>
+                        <div className={layoutStyles.baseContentContainer}>
+                          <div className={layoutStyles.contentRow}>
+                            <div className={`${layoutStyles.rectangle} ${layoutStyles.bgColorBlueJeans}`}></div>
+                          </div>
+                          <div className={layoutStyles.contentRow}>
+                            <div className={layoutStyles.circleContainer}>
+                              <div className={`${layoutStyles.circle} ${layoutStyles.bgColorFrenchSkyBlue}`}></div>
+                            </div>
+                            <div className={layoutStyles.circleContainer}>
+                              <div className={`${layoutStyles.circle} ${layoutStyles.bgColorBlueJeans}`}></div>
+                            </div>
+                            <div className={layoutStyles.circleContainer}>
+                              <div className={`${layoutStyles.circle} ${layoutStyles.bgColorFrenchSkyBlue}`}></div>
+                            </div>
+                            <div className={layoutStyles.circleContainer}>
+                              <div className={`${layoutStyles.circle} ${layoutStyles.bgColorBlueJeans}`}></div>
+                            </div>
+                          </div>
+                          <div className={`${layoutStyles.contentRow} ${layoutStyles.contentRowJustifyEnd}`}>
+                          <div className={`${layoutStyles.rectangle} ${layoutStyles.bgColorBabyBlueEyes}`}></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className={layoutStyles.illustrationBaseShadow}></div>
                     </div>
                 </div>
               </div>
@@ -168,7 +207,7 @@ const Layout = () => {
             <div className={layoutStyles.techStackBannerContainer}>
               <ul className={layoutStyles.techStackBanner}>
                 {bannerImages.map(bannerImage => (
-                  <li className={layoutStyles.techStackBannerItem}>
+                  <li>
                     <GatsbyImage imgClassName={layoutStyles.bannerImage} className={layoutStyles.bannerImageWrapper} image={ bannerImage.gatsbyImageData} alt={bannerImage.description} loading="eager"/>
                   </li>
                 ))
@@ -176,7 +215,7 @@ const Layout = () => {
               </ul>
               <ul className={`${layoutStyles.techStackBanner} ${layoutStyles.techStackBannerSecond}`}>
                 {bannerImages.map(bannerImage => (
-                  <li className={layoutStyles.techStackBannerItem}>
+                  <li>
                     <GatsbyImage imgClassName={layoutStyles.bannerImage} className={layoutStyles.bannerImageWrapper} image={ bannerImage.gatsbyImageData} alt={bannerImage.description} />
                   </li>
                 ))
@@ -185,27 +224,44 @@ const Layout = () => {
             </div>
             </div>
       
-            {/*<section className={layoutStyles.decoration}></section>*/}
             <section className={layoutStyles.introductionContainer} id="introduction">
-              <div className={layoutStyles.textContainer}>
-                <p className={layoutStyles.text}>Name is Rytis</p>
-                <h2 className={layoutStyles.text}>I create <span className={layoutStyles.wigglyUnderline}>sick</span><br /><b>digital products</b></h2>
-              </div>
-              {/*<div className={layoutStyles.imageContainer}>
-                  <img className={layoutStyles.introImage} src={introImg} alt="An image of a web developer" />
+              <div className={`${layoutStyles.bgCircle} ${layoutStyles.introductionCircle} ${layoutStyles.bgColorBabyBlueEyes}`}></div>
+              <div className={layoutStyles.introduction}>
+                <div className={layoutStyles.introImageContainer}>
+                  <GatsbyImage className={layoutStyles.introImage} image={page.authorImage.gatsbyImageData} alt="An image of the author" />
                 </div>
-              */}
+                <div className={layoutStyles.textContainer}>
+                  <p className={layoutStyles.text}>Name is Rytis.</p>
+                  <h2 className={`${layoutStyles.text}`}>I create <span className={`${layoutStyles.underline}`}>elegant</span><br /><b className={layoutStyles.textBrightGreen}>digital products</b></h2>
+                </div>
+              </div>
+              <div className={layoutStyles.bendyLine}>
+                <svg width="136" height="709" viewBox="0 0 136 709" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M67.7244 5C20.3911 73.5 -45.8756 239.8 67.7244 357C181.324 474.2 115.058 637.167 67.7244 704" stroke="#333333" stroke-width="10" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div className={`${layoutStyles.bgCircle} ${layoutStyles.introductionBottomCircle} ${layoutStyles.bgColorSkyBlueCrayola}`}></div>
             </section>
       
-            <section className={layoutStyles.introductionContainer} id="services">
-              <h2 className={layoutStyles.text}>I do:</h2>
-              <ul>
-                <li className={layoutStyles.text}>Websites</li>
-                <li className={layoutStyles.text}>Landing pages</li>
-                <li className={layoutStyles.text}>SEO</li>
-                <li className={layoutStyles.text}>Website speed optimization</li>
-              </ul>
+            <section className={layoutStyles.serviceContainer} id="services">
+              <div className={layoutStyles.service}>
+                <div className={layoutStyles.serviceTextContainer}>
+                  <h2 className={layoutStyles.text}>I <b>do</b>:</h2>
+                  <ul className={layoutStyles.serviceList}>
+                    <li className={layoutStyles.text}>Websites</li>
+                    <li className={layoutStyles.text}>Landing pages</li>
+                    <li className={layoutStyles.text}>SEO</li>
+                    <li className={layoutStyles.text}>Website speed optimization</li>
+                  </ul>
+                </div>
+              </div>
             </section>
+
+            <div className={layoutStyles.decorationBlock}>
+                <div className={`${layoutStyles.bgCircle} ${layoutStyles.decorationTinyCircle} ${layoutStyles.bgColorFrenchSkyBlue}`}></div>
+                <div className={`${layoutStyles.bgCircle} ${layoutStyles.decorationSmallCircle} ${layoutStyles.bgColorPink}`}></div>
+                <div className={`${layoutStyles.bgCircle} ${layoutStyles.decorationBigCircle} ${layoutStyles.bgColorBabyBlueEyes}`}></div>
+            </div>
       
             <section className={layoutStyles.portfolioContainer} id="portfolio">
               <h2 className={layoutStyles.text}>Past work:</h2>
