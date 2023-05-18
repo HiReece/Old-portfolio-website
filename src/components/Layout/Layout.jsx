@@ -240,7 +240,7 @@ const Layout = () => {
               </div>
               <div className={layoutStyles.bendyLine}>
                 <svg viewBox="0 0 136 709" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M67.7244 5C20.3911 73.5 -45.8756 239.8 67.7244 357C181.324 474.2 115.058 637.167 67.7244 704" stroke="#333333" stroke-width="10" stroke-linecap="round"/>
+                  <path d="M67.7244 5C20.3911 73.5 -45.8756 239.8 67.7244 357C181.324 474.2 115.058 637.167 67.7244 704" />
                 </svg>
               </div>
               <div className={`${layoutStyles.bgCircle} ${layoutStyles.introductionBottomCircle} ${layoutStyles.bgColorSkyBlueCrayola}`}></div>
