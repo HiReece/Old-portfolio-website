@@ -218,7 +218,7 @@ body{
 {
     .hero-heading{
         font-size: 56px;
-        line-height: 1.1
+        line-height: 1.1;
     }
 }
 
@@ -1042,6 +1042,7 @@ body{
     .footer-container{
         margin-left: var(--container-negative-margin-mobile);
         margin-right: var(--container-negative-margin-mobile);
+        height: 100vh;
     }
 }
 
@@ -1067,6 +1068,10 @@ body{
 
 @media only screen and (max-width: 480px){
     .cta-heading{
+        font-size: 56px;
+        line-height: 1.1;
+        padding-left: 80px;
+        padding-right: 80px;
         text-align: center;
     }
 }
