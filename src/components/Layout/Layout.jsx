@@ -165,7 +165,7 @@ const Layout = () => {
               <div className={layoutStyles.heroHeadingContainer}>
                 <h1 className={layoutStyles.heroHeading}>
                   Say<br />
-                  <span className={layoutStyles.greeting}>{greetings[greetingIndex]}</span><br />
+                  <span className={layoutStyles.greeting} key={greetingIndex}>{greetings[greetingIndex]}</span><br />
                   to your<br />
                   <span>new website</span>
                 </h1>

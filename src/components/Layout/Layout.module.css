@@ -225,7 +225,8 @@ body{
 .greeting{
     animation-name: opacityUp;
     animation-duration: 6s;
-    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
 }
 
 @keyframes opacityUp{
