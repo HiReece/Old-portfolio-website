@@ -878,7 +878,7 @@ body{
 
 .portfolio-item{
     position: relative;
-    margin-bottom: 300px;
+    margin-bottom: clamp(300px, 30vh, 30vh);
 }
 
 @media only screen and (max-width: 480px){
@@ -891,7 +891,7 @@ body{
     position: absolute;
     top: 0px;
     width: 120vw;
-    height: 500px;
+    height: clamp(500px, 40vh, 40vh);
     background-color: yellow;
     margin-left: var(--container-negative-margin-desktop);
     margin-right: var(--container-negative-margin-desktop);
@@ -911,9 +911,9 @@ body{
 
 .bottom-polygon{
     position: absolute;
-    bottom: -300px;
+    bottom: -50vh;
     width: calc(100vw);
-    height: 600px; 
+    height: clamp(600px, 80vh, 80vh);
     background-color: greenyellow;
     margin-right: var(--container-negative-margin-desktop);
     margin-left: var(--container-negative-margin-desktop);
@@ -935,8 +935,9 @@ body{
 .portfolio-image-wrapper{
     margin-left: var(--container-negative-margin-desktop);
     margin-right: var(--container-negative-margin-desktop);
-    min-width: calc(100vw - 14px);
+    min-width: 100vw;
     z-index: 0;
+    min-height: calc(100vw/1.5)
 }
 
 .portfolio-image-wrapper .portfolio-image{
