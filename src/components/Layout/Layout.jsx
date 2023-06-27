@@ -1,10 +1,12 @@
 import * as React from "react"
 import { useEffect, useLayoutEffect, useState, useRef } from "react"
 import * as layoutStyles from "./Layout.module.css"
-import "../../styles/reset.css"
 import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import Navbar from "../Navbar/Navbar"
+import Hero from "../Hero/Hero"
+import { routes } from "../../routes.json"
+
 
 const Layout = () => {
   const data = useStaticQuery(graphql`
@@ -52,8 +54,7 @@ const Layout = () => {
   const [isNavbarAtTheTop, setNavbarAtTheTop] = useState(true)
 
   const [portfolioImage, setPortfolioImage] = useState("mobileImage")
-  const greetings = ["hello", "labas", "bonjour", "hallo", "ciao", "привіт", "hola", "habari", "こんにちは", "witam", "ahoj", "tere", "hallå", "hei", "你好", "merhaba"]
-  const [greetingIndex, setGreetingIndex] = useState(0)
+
   const refs = useRef([])
   const footerPolygonRef = useRef()
   let [prevScrollPos, setPrevScrollPos] = useState(0)
@@ -79,15 +80,6 @@ const Layout = () => {
     windowWidth > 768 ? setPortfolioImage("desktopImage") : setPortfolioImage("mobileImage");
   }, [windowWidth])
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setGreetingIndex((greetingIndex) =>
-      greetingIndex + 1 >= greetings.length ? 0 : greetingIndex + 1
-      );
-    }, 6000);
-  
-    return () => clearInterval(interval);
-  }, []);
 
   useLayoutEffect(() => {
 
@@ -134,52 +126,9 @@ const Layout = () => {
  
     return (
         <div className={layoutStyles.container}>
-          <Navbar navbarHidden={navbarHidden} isNavbarAtTheTop={isNavbarAtTheTop} />
+          <Navbar navbarHidden={navbarHidden} isNavbarAtTheTop={isNavbarAtTheTop} routes={routes}/>
           <main>
-            <div className={layoutStyles.heroContainer} id="hero">
-              <div className={layoutStyles.heroHeadingContainer}>
-                <h1 className={layoutStyles.heroHeading}>
-                  Say<br />
-                  <span className={layoutStyles.greeting} key={greetingIndex}>{greetings[greetingIndex]}</span><br />
-                  to your<br />
-                  <span className={layoutStyles.textBrightGreen} >new website</span>
-                </h1>
-              </div>
-              <div className={layoutStyles.heroAnimationContainer}>
-                <div className={layoutStyles.illustrationContainer}>
-                    <div className={layoutStyles.illustrationBaseContainer}>
-                      <div className={layoutStyles.illustrationBase}>
-                        <div className={layoutStyles.baseContentContainer}>
-                          <div className={layoutStyles.contentRow}>
-                            <div className={`${layoutStyles.rectangle} ${layoutStyles.bgColorBlueJeans}`}></div>
-                          </div>
-                          <div className={layoutStyles.flippedOnMobile}>
-                            <div className={`${layoutStyles.contentRow} ${layoutStyles.rowFlippedOnMobile}`}>
-                              <div className={`${layoutStyles.circleContainer} ${layoutStyles.notDisplayedOnMobile}`}>
-                                <div className={`${layoutStyles.circle} ${layoutStyles.bgColorFrenchSkyBlue}`}></div>
-                              </div>
-                              <div className={`${layoutStyles.circleContainer} ${layoutStyles.notDisplayedOnMobile}`}>
-                                <div className={`${layoutStyles.circle} ${layoutStyles.bgColorBlueJeans}`}></div>
-                              </div>
-                              <div className={layoutStyles.circleContainer}>
-                                <div className={`${layoutStyles.circle} ${layoutStyles.bgColorFrenchSkyBlue}`}></div>
-                              </div>
-                              <div className={layoutStyles.circleContainer}>
-                                <div className={`${layoutStyles.circle} ${layoutStyles.bgColorBlueJeans}`}></div>
-                              </div>
-                            </div>
-                            <div className={`${layoutStyles.contentRow} ${layoutStyles.contentRowJustifyEnd}`}>
-                              <div className={`${layoutStyles.rectangle} ${layoutStyles.bgColorBabyBlueEyes}`}></div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className={layoutStyles.illustrationBaseShadow}></div>
-                    </div>
-                </div>
-              </div>
-            
-            </div>
+            <Hero />
             <div className={layoutStyles.techStackBannerWrapper}>
             <div className={layoutStyles.techStackBannerContainer}>
               <ul className={layoutStyles.techStackBanner}>

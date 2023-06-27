@@ -1,5 +1,6 @@
 import * as React from "react"
 import Layout from "../components/Layout/Layout"
+import "../styles/reset.css"
 import { graphql } from 'gatsby'
 
 const IndexPage = () => {
