@@ -1,0 +1,97 @@
+@import "../../styles/variables.css";
+
+.hero-container{
+    display: flex;
+    height: 100vh;
+    position: relative;
+    align-items: center;
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media only screen and (max-width: 768px)
+{
+    .hero-container{
+        flex-direction: column-reverse;
+        justify-content: center;
+    }
+}
+
+.hero-heading-container{
+    display: block;
+    min-width: 50%;
+}
+
+@media only screen and (max-width: 480px)
+{
+    .hero-heading-container{
+        justify-content: center;
+        padding-bottom: 30px;
+    }
+}
+
+.hero-heading{
+    font-size: 98px;
+    line-height: 1.2;
+}
+
+@media only screen and (max-width: 1400px)
+{
+    .hero-heading{
+        font-size: 82px;
+    }
+}
+
+@media only screen and (max-width: 480px)
+{
+    .hero-heading{
+        font-size: 56px;
+        line-height: 1.1;
+    }
+}
+
+.greeting{
+    animation-name: opacityUp;
+    animation-duration: 6s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+
+@keyframes opacityUp{
+    0%{
+       opacity: 0;
+    }1%{
+        opacity: 0;
+    }6%{
+       opacity: 100%;
+    }89%{
+        opacity: 100%;
+    } 99%{
+        opacity: 0;
+    }100%{
+        opacity: 0;
+    }
+}
+
+.hero-animation-container{
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    flex-grow: 1;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
+
+@media only screen and (max-width: 480px){ 
+    .hero-animation-container{
+        justify-content: flex-start;
+        height: auto;
+        position: relative;
+    }  
+}
+
