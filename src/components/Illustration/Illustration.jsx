@@ -4,7 +4,7 @@ import {illustrationContainer, illustrationBaseContainer, illustrationBase,
         rectangle, bgColorBlueJeans, bgColorFrenchSkyBlue,
         bgColorBabyBlueEyes, flippedOnMobile, rowFlippedOnMobile,
         circleContainer, circle,  notDisplayedOnMobile,
-        contentRowJustifyEnd  } from "./illustration.module.css"
+        contentRowJustifyEnd  } from "./Illustration.module.css"
 
 const Illustration = () => {
     return (

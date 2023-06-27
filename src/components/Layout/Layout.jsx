@@ -5,6 +5,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import Navbar from "../Navbar/Navbar"
 import Hero from "../Hero/Hero"
+import Banner from "../Banner/Banner"
 import { routes } from "../../routes.json"
 
 
@@ -129,27 +130,7 @@ const Layout = () => {
           <Navbar navbarHidden={navbarHidden} isNavbarAtTheTop={isNavbarAtTheTop} routes={routes}/>
           <main>
             <Hero />
-            <div className={layoutStyles.techStackBannerWrapper}>
-            <div className={layoutStyles.techStackBannerContainer}>
-              <ul className={layoutStyles.techStackBanner}>
-                {bannerImages.map(bannerImage => (
-                  <li>
-                    <GatsbyImage imgClassName={layoutStyles.bannerImage} className={layoutStyles.bannerImageWrapper} image={ bannerImage.gatsbyImageData} alt={bannerImage.description} loading="eager"/>
-                  </li>
-                ))
-                }
-              </ul>
-              <ul className={`${layoutStyles.techStackBanner} ${layoutStyles.techStackBannerSecond}`}>
-                {bannerImages.map(bannerImage => (
-                  <li>
-                    <GatsbyImage imgClassName={layoutStyles.bannerImage} className={layoutStyles.bannerImageWrapper} image={ bannerImage.gatsbyImageData} alt={bannerImage.description} />
-                  </li>
-                ))
-                }
-              </ul>
-            </div>
-            </div>
-      
+            <Banner bannerImages={bannerImages} />
             <section className={layoutStyles.introductionContainer}>
               <div className={`${layoutStyles.bgCircle} ${layoutStyles.introductionCircle} ${layoutStyles.bgColorBabyBlueEyes}`}></div>
               <div className={layoutStyles.introduction} id="introduction">
@@ -195,7 +176,7 @@ const Layout = () => {
               <div className={layoutStyles.portfolio}>
                 {portfolio.map( item => (
                 <div className={layoutStyles.portfolioItem} key={item.itemId}>
-                  <div className={layoutStyles.topPolygon} style={{transform: `rotate(-${rotationDegrees[item.itemId-1]}deg)`, backgroundColor: `${item.topColor}`}} ref={el => refs.current[item.itemId]= el}></div>
+                  <div className={layoutStyles.topPolygon} style={{transform: `rotate(-${rotationDegrees[item.itemId-1]}deg)`, backgroundColor: `${item.topColor}`}} ref={el => refs.current[item.itemId] = el}></div>
                   <GatsbyImage imgClassName={layoutStyles.portfolioImage} className={layoutStyles.portfolioImageWrapper} image={item[portfolioImage].gatsbyImageData} alt={item.imageAltText} />
                   <div className={layoutStyles.bottomPolygon} style={{backgroundColor: `${item.bottomColor}`}}></div>
                   <div className={layoutStyles.portfolioInfoBlock}>
