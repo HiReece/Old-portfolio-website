@@ -19,169 +19,16 @@ body{
     }
 }
 
-.navbar-container{
-    display: flex;
-    position: fixed;
-    justify-content: center;
-    top: 0px;
-    transition: top 0.3s;
-    width: calc(100% - 200px);
-    z-index: 1;
-}
 
-@media only screen and (max-width: 1800px){
-    .navbar-container{
-        justify-content: flex-end;
-    }
-}
 
-@media only screen and (max-width: 1024px){
-    .navbar-container{
-        background-color: var(--primary-color);
-        justify-content: center;
-        margin-left: var(--container-negative-margin-desktop);
-        width: 100vw;
-    }
-}
 
-@media only screen and (max-width: 480px){
-    .navbar-container{
-        margin-left: var(--container-negative-margin-mobile);
-    }
-}
 
-.navbar-container-full-height{
-    height: 100vh;
-}
 
-.navbar-links{
-    display: flex;
-    list-style-type: none;
-    padding-top: 30px;
-    padding-bottom: 30px;
-}
 
-@media only screen and (max-width: 1024px){
-    .navbar-links{
-        display: none;
-        padding-top: 100px;
-        justify-content: flex-start;
-        padding-inline-start: 0;
-    }
-}
 
-.nav-opened{
-    display: flex;
-    flex-direction: column;
-}
 
-.navbar-link-item{
-    font-weight: 700;
-    margin-left: 80px;
-    font-size: 18px;
-    transition: font-size 0.3s, background-color 0.2s;
-    background-color: #c9ffff;
-    cursor: pointer;
-}
 
-.navbar-link-item:hover{
-    background-color: pink;
-}
 
-.navbar-link-item:active{
-    background-color: #333333;
-}
-
-@media only screen and (max-width: 1024px){
-    .navbar-link-item{
-        background-color: transparent;
-        font-size: 36px;
-        margin-left: 0;
-    }
-}
-
-.navbar-at-the-top{
-    font-size: 28px;
-    background-color: transparent;
-}
-
-@media only screen and (max-width: 1400px){
-    .navbar-at-the-top{
-        font-size: 24px;
-    }
-}
-
-@media only screen and (max-width: 1024px){
-    .navbar-at-the-top{
-        font-size: 36px;
-    }
-}
-
-.navbar-link{
-    display: block;
-    color: #333333;
-    text-decoration: none; 
-    padding: 10px 20px;
-}
-
-.navbar-link:active{
-    color: pink;
-}
-
-.menu-button{
-    cursor: pointer;
-    display: none;
-    width: 60px;
-    background-color: transparent;
-    border: none;
-    position: fixed;
-    top: 30px;
-    right: 30px;
-    transition: top 0.4s;
-}
-
-@media only screen and (max-width: 1024px){
-    .menu-button{
-        display: block;
-        z-index: 2;
-    }
-}
-
-.menu-icon{
-    stroke: #333333;
-    stroke-linecap: round;
-    stroke-width: 2px;
-    vertical-align: top;
-}
-
-.close-button{
-    display: none; 
-    width: 60px;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    position: fixed;
-    top: 30px;
-    right: 30px;
-}
-
-@media only screen and (max-width: 1024px){
-    .close-button{
-        display: block;
-    }
-}
-
-.close-icon{
-    stroke: #333333;
-    stroke-linecap: round;
-    stroke-width: 2px;
-    vertical-align: top;
-}
-
-.item-hidden{
-    top: -100px;
-    transition: top 0.4s;
-}
 
 .hero-container{
     display: flex;
