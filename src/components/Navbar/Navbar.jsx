@@ -5,9 +5,7 @@ import {navbarContainer, navbarContainerFullHeight, navbarLinks,
         navOpened, itemHidden, closeButton,
         closeIcon, menuButton, menuIcon } from "./Navbar.module.css"
 
-import {routes} from "../../routes.json"
-
-const Navbar = ({navbarHidden, isNavbarAtTheTop}) => {
+const Navbar = ({navbarHidden, isNavbarAtTheTop, routes}) => {
     const [isMobileNavOpened, setIsMobileNavOpened] = useState(false)
     const toggleMobileNav = () => setIsMobileNavOpened(!isMobileNavOpened)
 
