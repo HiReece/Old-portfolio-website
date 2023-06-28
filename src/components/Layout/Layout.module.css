@@ -116,8 +116,6 @@ body{
     }
 }
 
-
-
 .decoration{
     height: 100px;
 }
@@ -125,10 +123,16 @@ body{
 .introduction-container{
     display: flex;
     justify-content: center;
-    height: 120vh;
+    height: clamp(768px, 120vh, 120vh);
     position: relative;
     padding-top: 10vh;
     padding-bottom: 10vh;
+}
+
+@media only screen and (max-width: 480px){
+    .introduction-container{
+        height: clamp(680px, 120vh, 120vh);
+    }
 }
 
 .introduction{ 
@@ -214,10 +218,16 @@ body{
 .service-container{
     display: flex;
     justify-content: center;
-    height: 110vh;
+    height: clamp(768px, 110vh, 110vh);
     position: relative;
     padding-top: 5vh;
     padding-bottom: 5vh;
+}
+
+@media only screen and (max-width: 480px){
+    .service-container{
+        height: clamp(680px, 120vh, 120vh);
+    }
 }
 
 .service{

@@ -2,7 +2,7 @@
 
 .hero-container{
     display: flex;
-    height: 100vh;
+    height: clamp(768px, 100vh, 100vh);
     position: relative;
     align-items: center;
     max-width: 1440px;
@@ -15,6 +15,13 @@
     .hero-container{
         flex-direction: column-reverse;
         justify-content: center;
+    }
+}
+
+@media only screen and (max-width: 480px)
+{
+    .hero-container{
+        height: clamp(680px, 100vh, 100vh);
     }
 }
 
