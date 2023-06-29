@@ -9,6 +9,9 @@ body{
     padding-left: var(--container-padding-desktop);
     padding-right: var(--container-padding-desktop);
     overflow-x: hidden;
+    overflow-y: auto;
+    height: 100vh;
+    perspective: 100px;
 }
 
 @media only screen and (max-width: 480px)
@@ -34,6 +37,27 @@ body{
     background-color: chartreuse;
     border-radius: 50%;
     position: absolute;
+}
+
+.parallax-layer1{
+    transform: translateZ(-1px);
+}
+
+.circle1{
+    width: clamp(380px, 19vw, 19vw);
+    height: clamp(380px, 19vw, 19vw);
+    top: clamp(768px, 103vh, 103vh);
+    left: 18%;
+    z-index: -1;
+}
+
+@media only screen and (max-width: 480px){
+    .circle1{
+        width: clamp(340px, 19vw, 19vw);
+        height: clamp(340px, 19vw, 19vw);
+        left: -100px;
+        top: clamp(680px, 98vh, 98vh);;
+    }
 }
 
 .introduction-circle{
@@ -69,6 +93,14 @@ body{
         width: 310px;
         height: 310px;
     }
+}
+
+.circle2{
+    width: 30px;
+    height: 30px;
+    left: 60vw;
+    top: clamp(950px, 148vh, 148vh);
+    z-index: -1;
 }
 
 .introduction-tiny-circle{
