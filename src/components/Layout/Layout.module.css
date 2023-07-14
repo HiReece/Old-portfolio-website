@@ -11,7 +11,7 @@ body{
     overflow-x: hidden;
     overflow-y: auto;
     height: 100vh;
-    perspective: 100px;
+    perspective: 10px;
 }
 
 @media only screen and (max-width: 480px)
@@ -22,12 +22,12 @@ body{
     }
 }
 
-.displayed-on-mobile{
+.displayed-only-mobile{
     display: none;
 }
 
 @media only screen and (max-width: 480px){
-    .displayed-on-mobile{
+    .displayed-only-mobile{
         display: block;
     }
 }
@@ -39,112 +39,115 @@ body{
     position: absolute;
 }
 
+.parallax-layer0{
+    transform: translateZ(-2px);
+}
+
 .parallax-layer1{
-    transform: translateZ(-1px);
+    transform: translateZ(-4px);
+}
+
+.parallax-layer2{
+    transform: translateZ(-8px);
+}
+
+.parallax-layer3{
+    transform: translateZ(-16px);
 }
 
 .circle1{
-    width: clamp(380px, 19vw, 19vw);
-    height: clamp(380px, 19vw, 19vw);
-    top: clamp(768px, 103vh, 103vh);
-    left: 18%;
+    width: clamp(680px, 46vw, 46vw);
+    height: clamp(680px, 46vw, 46vw);
+    top: clamp(400px, 50vh, 50vh);
+    left: 0;
     z-index: -1;
+    
 }
 
 @media only screen and (max-width: 480px){
     .circle1{
-        width: clamp(340px, 19vw, 19vw);
-        height: clamp(340px, 19vw, 19vw);
-        left: -100px;
-        top: clamp(680px, 98vh, 98vh);;
-    }
-}
-
-.introduction-circle{
-    width: 480px;
-    height: 480px;
-    top: -14vh;
-    left: 190px;
-    z-index: -1;
-    transition: top 1s, left 1s, width 1s, height 1s;
-}
-
-@media only screen and (max-width: 1800px){
-    .introduction-circle{
-        top: -15vh;
-        width: 380px;
-        height: 380px;
-    }
-}
-
-@media only screen and (max-width: 1400px){
-    .introduction-circle{
-        top: -18vh;
-        width: 340px;
-        height: 340px;
-    }
-}
-
-
-@media only screen and (max-width: 1400px){
-    .introduction-circle{
-        top: -160px;
-        left: -100px;
-        width: 310px;
-        height: 310px;
+        width: clamp(440px, 19vw, 19vw);
+        height: clamp(440px, 19vw, 19vw);
+        left: -200px;
+        top: clamp(440px, 60vh, 60vh);;
     }
 }
 
 .circle2{
     width: 30px;
     height: 30px;
-    left: 60vw;
-    top: clamp(950px, 148vh, 148vh);
+    left: 66vw;
+    top: clamp(920px, 144vh, 144vh);
+    z-index: 0;
+}
+
+.circle3{
+    width: clamp(660px, 60vw, 60vw);
+    height: clamp(660px, 60vw, 60vw);
+    top: clamp(1636px, 220vh, 220vh);
+    left: 66%;
     z-index: -1;
-}
-
-.introduction-tiny-circle{
-    width: 30px;
-    height: 30px;
-    top: -175px;
-    right: 90px;
-    z-index: -1;
-    transition: top 1s, left 1s, width 1s, height 1s;
-}
-
-.introduction-bottom-circle{
-    width: 500px;
-    height: 500px;
-    bottom: -18vh;
-    right: 8vw;
-    z-index: -1;
-    transition: bottom 1s, right 1s, width 1s, height 1s;
-}
-
-@media only screen and (max-width: 1800px){
-    .introduction-bottom-circle{
-        width: 420px;
-        height: 420px;
-        bottom: -18vh;
-        right: 6vw;
-    }
-}
-
-@media only screen and (max-width: 1400px){
-    .introduction-bottom-circle{
-        width: 380px;
-        height: 380px;
-        bottom: -26vh;
-        right: 2vw;
-    }
 }
 
 @media only screen and (max-width: 480px){
-    .introduction-bottom-circle{
-        width: 380px;
-        height: 380px;
-        bottom: -26vh;
-        right: -100px;
+    .circle3{
+        width: clamp(450px, 40vw, 40vw);
+        height: clamp(450px, 40vw, 40vw);
+        left: clamp(100px, 40%, 40%);
+        top: clamp(1260px, 226vh, 226vh);
+    }
+}
+
+.circle4{
+    height: clamp(700px, 100vw, 100vw);
+    left: 60%;
+    top: clamp(2304px, 338vh, 338vh);
+    width: clamp(700px, 100vw, 100vw);
+    z-index: -1;
+    display: none;
+}
+
+@media only screen and (max-width: 480px){
+    .circle4{
+        display: block;
+        height: clamp(450px, 19vw, 19vw);
+        left: clamp(60px, 46%, 46%);
+        top: clamp(1260px, 364vh, 364vh);
+        width: clamp(450px, 19vw, 19vw); 
+    }
+}
+
+.circle5{
+    height: clamp(120px, 8vw, 19vw);
+    left: clamp(-910px, -60%, -60%);
+    top: clamp(2304px, 342vh, 342vh);
+    width: clamp(120px, 8vw, 19vw);
+    z-index: -1;
+}
+
+@media only screen and (max-width: 480px){
+    .circle5{
+        height: clamp(100px, 8vw, 19vw);
+        left: clamp(-250px, -68%, -68%);
+        top: clamp(1160px, 396vh, 396vh);
+        width: clamp(100px, 8vw, 19vw);
+    }
+}
+
+.circle6{
+    height: clamp(46px, 2.8vw, 3.6vw);
+    left: clamp(-280px, -30%, -30%);
+    top: clamp(2304px, 352vh, 352vh);
+    width: clamp(46px, 2.8vw, 19vw);
+    z-index: -1;
+}
+
+@media only screen and (max-width: 480px){
+    .circle6{
+        height: clamp(30px, 8vw, 19vw);
+        left: clamp(-150px, -16%, -16%);
+        top: clamp(1160px, 384vh, 384vh);
+        width: clamp(30px, 8vw, 3.6vw);
     }
 }
 
@@ -324,102 +327,6 @@ body{
 .decoration-block{
     position: relative;
     height: 30vh;
-}
-
-.decoration-big-circle{
-  height: 600px;
-  width: 600px;
-  bottom: -6vh;
-  right: -15vw;
-  z-index: -1;
-}
-
-@media only screen and (max-width: 1800px){
-    .decoration-big-circle{
-        height: 560px;
-        width: 560px;
-        right: -16vw;
-        bottom: -14vh;
-    }
-}
-
-@media only screen and (max-width: 1400px){
-    .decoration-big-circle{
-        height: 500px;
-        width: 500px;
-        right: -16vw;
-        bottom: -12vh;
-    }
-}
-
-@media only screen and (max-width: 480px){
-    .decoration-big-circle{
-        height: 350px;
-        width: 350px;
-        right: -160px;
-        bottom: -180px;
-    }
-}
-
-.decoration-small-circle{
-  height: 110px;
-  width: 110px;
-  left: 5vw;
-  top: -25vh;
-}
-
-@media only screen and (max-width: 1800px){
-    .decoration-small-circle{
-        left: 4vw;
-        top: -12vh;
-    }
-}
-
-@media only screen and (max-width: 1400px){
-    .decoration-small-circle{
-        height: 80px;
-        width: 80px;
-        left: 2vw;
-        top: -14vh;
-    }
-}
-
-@media only screen and (max-width: 480px){
-    .decoration-small-circle{
-        top: -22vh;
-    }
-}
-
-.decoration-tiny-circle{
-  height: 50px;
-  width: 50px;
-  left: 12vw;
-  top: -10vh;
-}
-
-@media only screen and (max-width: 1800px){
-    .decoration-tiny-circle{
-        left: 14vw;
-        top: 4vh;
-    }
-}
-
-@media only screen and (max-width: 1400px){
-    .decoration-tiny-circle{
-        height: 30px;
-        width: 30px;
-        left: 12vw;
-        top: 0;
-    }
-}
-
-@media only screen and (max-width: 480px){
-    .decoration-tiny-circle{
-        height: 30px;
-        width: 30px;
-        left: 22vw;
-        top: -12vh;
-    }
 }
 
 .portfolio-item{

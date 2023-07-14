@@ -1,5 +1,24 @@
 @import "../../styles/variables.css";
 
+
+.hero-wrapper{
+    min-width: 100vw;
+    background-color: var(--primary-color);
+    margin-left: var(--container-negative-margin-desktop);
+    margin-right: var(--container-negative-margin-desktop);
+    padding-left: var(--container-padding-desktop);
+    padding-right: var(--container-padding-desktop);
+}
+
+@media only screen and (max-width: 480px){
+    .hero-wrapper{
+        margin-left: var(--container-negative-margin-mobile);
+        margin-right: var(--container-negative-margin-mobile);
+        padding-left: var(--container-padding-mobile);
+        padding-right: var(--container-padding-mobile);
+    }
+}
+
 .hero-container{
     display: flex;
     height: clamp(768px, 100vh, 100vh);
@@ -15,6 +34,10 @@
     .hero-container{
         flex-direction: column-reverse;
         justify-content: center;
+        margin-left: var(--container-negative-margin-mobile);
+        margin-right: var(--container-negative-margin-mobile);
+        padding-left: var(--container-padding-mobile);
+        padding-right: var(--container-padding-mobile);
     }
 }
 
@@ -91,7 +114,7 @@
     left: 0;
     height: 100%;
     width: 100%;
-    z-index: -1;
+    z-index: 0;
 }
 
 @media only screen and (max-width: 768px){ 

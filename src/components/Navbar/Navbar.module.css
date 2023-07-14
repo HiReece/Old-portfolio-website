@@ -7,7 +7,9 @@
     justify-content: center;
     top: 0px;
     transition: top 0.3s;
-    width: calc(100% - 200px);
+    width: 100vw;
+    padding-right: var(--container-padding-desktop);
+    padding-left: var(--container-padding-desktop);
     z-index: 2;
 }
 
@@ -28,7 +30,7 @@
 
 @media only screen and (max-width: 480px){
     .navbar-container{
-        margin-left: var(--container-negative-margin-mobile);
+        margin-left: 0;
     }
 }
 

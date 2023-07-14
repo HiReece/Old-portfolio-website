@@ -1,6 +1,6 @@
 import * as React from "react"
 import { useEffect, useState } from "react"
-import {heroContainer, heroHeadingContainer, heroHeading,
+import {heroWrapper, heroContainer, heroHeadingContainer, heroHeading,
         greeting, heroAnimationContainer} from "./Hero.module.css"
 import { textBrightGreen } from "../Layout/Layout.module.css"
 import Illustration from "../Illustration/Illustration"
@@ -20,19 +20,21 @@ const Hero = () => {
       }, []);
 
     return (
-        <div className={heroContainer} id="hero">
-        <div className={heroHeadingContainer}>
-          <h1 className={heroHeading}>
-            Say<br />
-            <span className={greeting} key={greetingIndex}>{greetings[greetingIndex]}</span><br />
-            to your<br />
-            <span className={textBrightGreen} >new website</span>
-          </h1>
+        <div className={heroWrapper}>
+          <div className={heroContainer} id="hero">
+            <div className={heroHeadingContainer}>
+              <h1 className={heroHeading}>
+                Say<br />
+                <span className={greeting} key={greetingIndex}>{greetings[greetingIndex]}</span><br />
+                to your<br />
+                <span className={textBrightGreen} >new website</span>
+              </h1>
+            </div>
+            <div className={heroAnimationContainer}>
+              <Illustration />
+            </div>
         </div>
-        <div className={heroAnimationContainer}>
-          <Illustration />
-        </div>
-      </div>
+      </div> 
     )
 }
 
