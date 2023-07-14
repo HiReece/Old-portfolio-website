@@ -20,8 +20,8 @@ const Hero = () => {
       }, []);
 
     return (
-        <div className={heroWrapper}>
-          <div className={heroContainer} id="hero">
+        <div className={heroWrapper} id="hero">
+          <div className={heroContainer}>
             <div className={heroHeadingContainer}>
               <h1 className={heroHeading}>
                 Say<br />
