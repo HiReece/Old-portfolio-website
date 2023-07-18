@@ -143,7 +143,7 @@ const Layout = () => {
                 <div className={layoutStyles.introImageContainer}>
                   <GatsbyImage image={page.authorImage.gatsbyImageData} alt="An image of the author" loading="lazy" />
                 </div>
-                <p className={layoutStyles.text}>Name is Rytis.</p>
+                <p className={`${layoutStyles.text} ${layoutStyles.introText}`}>Name is Rytis.</p>
                 <h2 className={`${layoutStyles.text}`}>I create <span className={`${layoutStyles.underline}`}>elegant</span><br /><b className={layoutStyles.textBrightGreen}>digital products</b></h2>
               </div>
             </div>
@@ -172,7 +172,7 @@ const Layout = () => {
           </div>
     
           <section className={layoutStyles.portfolioContainer} id="portfolio">
-            <h2 className={` ${layoutStyles.text} ${layoutStyles.sectionHeading}`}>Past work:</h2>
+            <h2 className={`${layoutStyles.text} ${layoutStyles.sectionHeading} ${layoutStyles.portfolioHeading} ${layoutStyles.textAlignCenter}`}>Past work:</h2>
             <div className={layoutStyles.portfolio}>
               {portfolio.map( item => (
               <div className={layoutStyles.portfolioItem} key={item.itemId}>

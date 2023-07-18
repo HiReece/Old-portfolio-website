@@ -23,7 +23,6 @@
     .navbar-container{
         background-color: var(--primary-color);
         justify-content: center;
-        margin-left: var(--container-negative-margin-desktop);
         width: 100vw;
     }
 }
@@ -115,6 +114,12 @@
     text-decoration: none; 
     padding: 10px 20px;
     transition: color 0.25s;
+}
+
+@media only screen and (max-width: 1024px){
+    .navbar-link{
+        text-align: center;
+    }
 }
 
 .navbar-link:hover{

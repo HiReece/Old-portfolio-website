@@ -214,6 +214,28 @@ body{
     }
 }
 
+@media only screen and (max-width: 480px){
+    .intro-text{
+        text-align: center;
+    }
+}
+
+.section-heading.portfolio-heading{
+    padding-bottom: 60px;
+    font-weight: 700;
+    text-align: center;
+}
+
+@media only screen and (max-width: 480px){
+    .section-heading.portfolio-heading{
+        padding-bottom: 20px;
+    }
+}
+
+.text-align-center{
+    text-align: left;
+}
+
 .bendy-line{
     position: absolute;
     left: 4vw;
