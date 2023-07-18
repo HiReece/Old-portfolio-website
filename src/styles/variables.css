@@ -2,13 +2,18 @@
    --primary-color: #05C6FD;
    --sky-blue-crayola: #6CE3CF;
    --light-blue: #c9ffff;
+   --light-cyan: #DEF5FF;
    --bright-green: #60F289;
+   --magic-mint: #95F8C6;
 
    --blue-jeans: #5BC3F6;
    --french-sky-blue: #82A5F6;
    --baby-blue-eyes: #A9C3F6;
    --iceberg: #70BDD1;
    --pink: pink;
+
+   --primary-text-color: var(--light-cyan);
+   --heading-text-color: var(--bright-green);
 
    --container-padding-desktop: 100px;
    --container-negative-margin-desktop: -100px;

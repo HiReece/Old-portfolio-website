@@ -64,16 +64,12 @@
     margin-left: 80px;
     font-size: 18px;
     transition: font-size 0.3s, background-color 0.2s;
-    background-color: #c9ffff;
+    background-color: var(--baby-blue-eyes);
     cursor: pointer;
 }
 
-.navbar-link-item:hover{
-    background-color: pink;
-}
-
 .navbar-link-item:active{
-    background-color: #333333;
+    background-color: var(--bright-green);
 }
 
 @media only screen and (max-width: 1024px){
@@ -87,6 +83,18 @@
 .navbar-at-the-top{
     font-size: 28px;
     background-color: transparent;
+}
+
+.navbar-at-the-top.navbar-link-item:hover{
+    background-color: transparent;
+}
+
+.navbar-at-the-top .navbar-link:hover{
+    color: var(--magic-mint);
+}
+
+.navbar-at-the-top .navbar-link:active{
+    color: var(--bright-green);
 }
 
 @media only screen and (max-width: 1400px){
@@ -103,20 +111,28 @@
 
 .navbar-link{
     display: block;
-    color: #333333;
+    color: var(--primary-text-color);
     text-decoration: none; 
     padding: 10px 20px;
+    transition: color 0.25s;
+}
+
+.navbar-link:hover{
+    color: var(--magic-mint);
 }
 
 .navbar-link:active{
-    color: pink;
+    color: var(--baby-blue-eyes);
 }
 
 .menu-button{
     cursor: pointer;
     display: none;
     width: 60px;
-    background-color: transparent;
+    height: 60px;
+    background-color: var(--magic-mint);
+    padding: 10px;
+    border-radius: 30px;
     border: none;
     position: fixed;
     top: 30px;
@@ -132,7 +148,7 @@
 }
 
 .menu-icon{
-    stroke: #333333;
+    stroke: var(--primary-color);
     stroke-linecap: round;
     stroke-width: 2px;
     vertical-align: top;
@@ -141,7 +157,10 @@
 .close-button{
     display: none; 
     width: 60px;
-    background-color: transparent;
+    height: 60px;
+    background-color: var(--magic-mint);
+    padding: 10px;
+    border-radius: 30px;
     border: none;
     cursor: pointer;
     position: fixed;
@@ -156,9 +175,9 @@
 }
 
 .close-icon{
-    stroke: #333333;
+    stroke: var(--primary-color);
     stroke-linecap: round;
-    stroke-width: 2px;
+    stroke-width: 3px;
     vertical-align: top;
 }
 

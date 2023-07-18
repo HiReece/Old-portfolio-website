@@ -308,6 +308,7 @@ body{
 }
 
 .text{
+    color: var(--primary-text-color);
     font-size: 74px;
     font-weight: 400;
 }
@@ -434,17 +435,18 @@ body{
 }
 
 .portfolio-link{
-    color: #8CC4F5;
+    color: #333333;
     display: block;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 8px;
     padding-bottom: 8px;
     text-underline-offset: 4px;
+    transition: color 0.25s ;
 }
 
 .portfolio-link:hover{
-    color: white;
+    color: var(--light-cyan);
 }
 
 @media only screen and (max-width: 1024px){
@@ -454,13 +456,13 @@ body{
 }
 
 .portfolio-heading{
-    color: #8CC4F5;
+    color: #333333;
     font-weight: 400;
 }
 
 .portfolio-tech-stack{
     margin-top: 6px;
-    color: white;
+    color: #333333;
     font-weight: 400;
     padding-top: 8px;
     padding-left: 10px;
@@ -477,7 +479,7 @@ body{
 }
 
 .background-block{
-    background-color: #333333;
+    background-color: var(--bright-green);
     padding-left: 14px;
     padding-right: 14px;
     padding-top: 8px;
@@ -544,6 +546,12 @@ body{
     padding-bottom: 24px;
     text-align: center;
     text-decoration: none;
+    transition: color 0.15s, transform 0.15s;
+}
+
+.cta-button:hover{
+    transform: scale(1.05);
+    color: white;
 }
 
 .scroll-to-top-container{
@@ -553,6 +561,7 @@ body{
     background-color: #c9ffff;
     z-index: 1;
     cursor: pointer;
+    transition: background-color 0.25s;
 }
 
 .scroll-to-top-container:hover{
@@ -573,6 +582,7 @@ body{
 .scroll-top-icon{
     padding: 10px;
     fill: #333333;
+    transition: fill 0.25s;
 }
 
 .scroll-top-icon:hover{
@@ -581,6 +591,27 @@ body{
 
 .scroll-top-icon:active{
     fill: pink;
+}
+
+.list-item{
+    font-size: 58px;
+}
+
+@media only screen and (max-width: 1800px){
+    .list-item{
+        font-size: 42px;
+    }
+}
+
+@media only screen and (max-width: 480px){
+    .list-item{
+        font-size: 32px;
+    }
+}
+
+.section-heading{
+    color: var(--heading-text-color);
+    font-weight: 700;
 }
 
 .text-bright-green{

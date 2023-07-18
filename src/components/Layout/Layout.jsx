@@ -108,7 +108,7 @@ const Layout = () => {
 
     console.log("Is navbar at the top rn: " + isNavbarAtTheTop)
     // Navbar link font gets smaller when scroll from the top value is lower than window's inner height
-    containerRef.current.scrollTop > window.innerHeight ? setNavbarAtTheTop(false) : setNavbarAtTheTop(true)
+    containerRef.current.scrollTop > window.innerHeight*0.95 ? setNavbarAtTheTop(false) : setNavbarAtTheTop(true)
   }
 
   useLayoutEffect(() => {
@@ -134,7 +134,7 @@ const Layout = () => {
           <div className={`${layoutStyles.bgCircle} ${layoutStyles.parallaxLayer0} ${layoutStyles.circle2} ${layoutStyles.displayedOnlyMobile} ${layoutStyles.bgColorSkyBlueCrayola}`}></div>
           <div className={`${layoutStyles.bgCircle} ${layoutStyles.parallaxLayer1} ${layoutStyles.circle3} ${layoutStyles.bgColorSkyBlueCrayola}`}></div>
           <div className={`${layoutStyles.bgCircle} ${layoutStyles.parallaxLayer1} ${layoutStyles.circle4} ${layoutStyles.bgColorBabyBlueEyes}`}></div>
-          <div className={`${layoutStyles.bgCircle} ${layoutStyles.parallaxLayer3} ${layoutStyles.circle5} ${layoutStyles.bgColorSkyBlueCrayola}`}></div>
+          <div className={`${layoutStyles.bgCircle} ${layoutStyles.parallaxLayer3} ${layoutStyles.circle5} ${layoutStyles.bgColorBabyBlueEyes}`}></div>
           <div className={`${layoutStyles.bgCircle} ${layoutStyles.parallaxLayer2} ${layoutStyles.circle6} ${layoutStyles.bgColorFrenchSkyBlue}`}></div>
           
           <section className={layoutStyles.introductionContainer}>
@@ -157,12 +157,12 @@ const Layout = () => {
           <section className={layoutStyles.serviceContainer}>
             <div className={layoutStyles.service} id="services">
               <div className={layoutStyles.serviceTextContainer}>
-                <h2 className={layoutStyles.text}>I <b>do</b>:</h2>
+                <h2 className={` ${layoutStyles.text} ${layoutStyles.sectionHeading}`}>I develop:</h2>
                 <ul className={layoutStyles.serviceList}>
-                  <li className={layoutStyles.text}>Websites</li>
-                  <li className={layoutStyles.text}>Landing pages</li>
-                  <li className={layoutStyles.text}>SEO</li>
-                  <li className={layoutStyles.text}>Website speed optimization</li>
+                  <li className={`${layoutStyles.text} ${layoutStyles.listItem}`}>Websites</li>
+                  <li className={`${layoutStyles.text} ${layoutStyles.listItem}`}>Landing pages</li>
+                  <li className={`${layoutStyles.text} ${layoutStyles.listItem}`}>SEO</li>
+                  <li className={`${layoutStyles.text} ${layoutStyles.listItem}`}>Website speed optimization</li>
                 </ul>
               </div>
             </div>
@@ -172,7 +172,7 @@ const Layout = () => {
           </div>
     
           <section className={layoutStyles.portfolioContainer} id="portfolio">
-            <h2 className={layoutStyles.text}>Past work:</h2>
+            <h2 className={` ${layoutStyles.text} ${layoutStyles.sectionHeading}`}>Past work:</h2>
             <div className={layoutStyles.portfolio}>
               {portfolio.map( item => (
               <div className={layoutStyles.portfolioItem} key={item.itemId}>

@@ -1,8 +1,7 @@
 import * as React from "react"
 import { useEffect, useState } from "react"
 import {heroWrapper, heroContainer, heroHeadingContainer, heroHeading,
-        greeting, heroAnimationContainer} from "./Hero.module.css"
-import { textBrightGreen } from "../Layout/Layout.module.css"
+        greeting, heroAnimationContainer, textBrightGreen} from "./Hero.module.css"
 import Illustration from "../Illustration/Illustration"
 
 const Hero = () => {
