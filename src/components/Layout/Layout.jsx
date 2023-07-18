@@ -136,7 +136,12 @@ const Layout = () => {
           <div className={`${layoutStyles.bgCircle} ${layoutStyles.parallaxLayer1} ${layoutStyles.circle4} ${layoutStyles.bgColorBabyBlueEyes}`}></div>
           <div className={`${layoutStyles.bgCircle} ${layoutStyles.parallaxLayer3} ${layoutStyles.circle5} ${layoutStyles.bgColorBabyBlueEyes}`}></div>
           <div className={`${layoutStyles.bgCircle} ${layoutStyles.parallaxLayer2} ${layoutStyles.circle6} ${layoutStyles.bgColorFrenchSkyBlue}`}></div>
-          
+          <div className={`${layoutStyles.bendyLine} ${layoutStyles.parallaxLayer0}`}>
+              <svg viewBox="0 0 136 709" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M67.7244 5C20.3911 73.5 -45.8756 239.8 67.7244 357C181.324 474.2 115.058 637.167 67.7244 704" />
+              </svg>
+            </div>
+
           <section className={layoutStyles.introductionContainer}>
             <div className={layoutStyles.introduction} id="introduction">
               <div className={layoutStyles.textContainer}>  
@@ -146,11 +151,6 @@ const Layout = () => {
                 <p className={`${layoutStyles.text} ${layoutStyles.introText}`}>Name is Rytis.</p>
                 <h2 className={`${layoutStyles.text}`}>I create <span className={`${layoutStyles.underline}`}>elegant</span><br /><b className={layoutStyles.textBrightGreen}>digital products</b></h2>
               </div>
-            </div>
-            <div className={layoutStyles.bendyLine}>
-              <svg viewBox="0 0 136 709" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M67.7244 5C20.3911 73.5 -45.8756 239.8 67.7244 357C181.324 474.2 115.058 637.167 67.7244 704" />
-              </svg>
             </div>
           </section>   
 

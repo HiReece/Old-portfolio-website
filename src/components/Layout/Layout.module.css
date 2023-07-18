@@ -239,27 +239,27 @@ body{
 .bendy-line{
     position: absolute;
     left: 4vw;
-    top: 50vh;
+    top: clamp(1152px, 164vh, 164vh);
     width: 180px;
     height: 938.38px;
-    stroke:#666666;
+    stroke:#888888;
     stroke-width: 10px;
     stroke-linecap: round;
+    z-index: -1;
 }
 
 @media only screen and (max-width: 1800px){
     .bendy-line{
-        left: 2vw;
-        top: 48vh;
-        width: 136px;
-        height: 709px;
+        left: 0;
+        top: clamp(1152px, 164vh, 164vh);
+        width: 160px;
+        height: 834px;
     }
 }
 
 @media only screen and (max-width: 1400px){
     .bendy-line{
         left: 0;
-        top: 48vh;
         stroke-width: 8px;
         width: 136px;
         height: 709px;
