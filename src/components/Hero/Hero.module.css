@@ -83,7 +83,6 @@
 }
 
 .greeting{
-    /*color: #DFD3F7;*/
     animation-name: opacityUp;
     animation-duration: 6s;
     animation-fill-mode: forwards;
