@@ -128,7 +128,7 @@ const Layout = () => {
       <>
         <Navbar navbarHidden={navbarHidden} isNavbarAtTheTop={isNavbarAtTheTop} routes={routes}/>
         <div className={layoutStyles.container} ref={containerRef}>
-          <Hero />
+          <Hero ctaLink={page.ctaLink} />
           <Banner bannerImages={bannerImages} />
           <div className={`${layoutStyles.bgCircle} ${layoutStyles.parallaxLayer1} ${layoutStyles.circle1} ${layoutStyles.bgColorBabyBlueEyes}`}></div>
           <div className={`${layoutStyles.bgCircle} ${layoutStyles.parallaxLayer0} ${layoutStyles.circle2} ${layoutStyles.displayedOnlyMobile} ${layoutStyles.bgColorSkyBlueCrayola}`}></div>

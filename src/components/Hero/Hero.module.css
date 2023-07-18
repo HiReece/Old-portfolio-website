@@ -24,6 +24,8 @@
     height: clamp(768px, 100vh, 100vh);
     position: relative;
     align-items: center;
+    justify-content: center;
+    flex-direction: column; 
     max-width: 1440px;
     margin-left: auto;
     margin-right: auto;
@@ -32,7 +34,6 @@
 @media only screen and (max-width: 768px)
 {
     .hero-container{
-        flex-direction: column-reverse;
         justify-content: center;
         margin-left: var(--container-negative-margin-mobile);
         margin-right: var(--container-negative-margin-mobile);
@@ -65,6 +66,7 @@
     color: var(--primary-text-color);
     font-size: 98px;
     line-height: 1.2;
+    text-align: center;
 }
 
 @media only screen and (max-width: 1400px)
@@ -77,12 +79,14 @@
 @media only screen and (max-width: 480px)
 {
     .hero-heading{
-        font-size: 56px;
+        font-size: 46px;
         line-height: 1.1;
+        text-align: center;
     }
 }
 
 .greeting{
+    color: #96F0FE;/*#77E6FE;*/
     animation-name: opacityUp;
     animation-duration: 6s;
     animation-fill-mode: forwards;
@@ -124,6 +128,35 @@
         height: auto;
         position: relative;
     }  
+}
+
+.cta-container{
+    margin-top: 60px;
+}
+
+@media screen and (max-width: 480px){
+    .cta-container{
+      min-width: 100%;
+      margin-top: 0px;
+    }
+}
+
+.cta-button{
+    background-color: var(--bright-green);
+    display: block;
+    padding: 16px 60px; 
+    border-radius: 10px;
+    text-decoration: none;
+    color: #333333;
+    font-weight: 700;
+    font-size: 18px;
+    text-align: center;
+    transition: color 0.15s, transform 0.15s;
+}
+
+.cta-button:hover{
+    transform: scale(1.05);
+    color: white;
 }
 
 .text-bright-green{
