@@ -13,12 +13,6 @@
     z-index: 2;
 }
 
-@media only screen and (max-width: 1800px){
-    .navbar-container{
-        justify-content: flex-end;
-    }
-}
-
 @media only screen and (max-width: 1024px){
     .navbar-container{
         background-color: var(--primary-color);
@@ -38,6 +32,7 @@
 }
 
 .navbar-links{
+    column-gap: 3vw;
     display: flex;
     list-style-type: none;
     padding-top: 30px;
@@ -60,7 +55,6 @@
 
 .navbar-link-item{
     font-weight: 700;
-    margin-left: 80px;
     font-size: 18px;
     transition: font-size 0.3s, background-color 0.2s;
     background-color: var(--baby-blue-eyes);
@@ -75,15 +69,25 @@
     .navbar-link-item{
         background-color: transparent;
         font-size: 36px;
-        margin-left: 0;
     }
 }
 
 .navbar-at-the-top{
-    font-size: 28px;
+    font-size: 24px;
     background-color: transparent;
 }
 
+@media only screen and (max-width: 1400px){
+    .navbar-at-the-top{
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 1024px){
+    .navbar-at-the-top{
+        font-size: 36px;
+    }
+}
 .navbar-at-the-top.navbar-link-item:hover{
     background-color: transparent;
 }
@@ -94,18 +98,6 @@
 
 .navbar-at-the-top .navbar-link:active{
     color: var(--bright-green);
-}
-
-@media only screen and (max-width: 1400px){
-    .navbar-at-the-top{
-        font-size: 24px;
-    }
-}
-
-@media only screen and (max-width: 1024px){
-    .navbar-at-the-top{
-        font-size: 36px;
-    }
 }
 
 .navbar-link{
