@@ -162,7 +162,7 @@ const Layout = () => {
                   <li className={`${layoutStyles.text} ${layoutStyles.listItem}`}>Websites</li>
                   <li className={`${layoutStyles.text} ${layoutStyles.listItem}`}>Landing pages</li>
                   <li className={`${layoutStyles.text} ${layoutStyles.listItem}`}>SEO</li>
-                  <li className={`${layoutStyles.text} ${layoutStyles.listItem}`}>Website speed optimization</li>
+                  <li className={`${layoutStyles.text} ${layoutStyles.listItem}`}>Conversion optimization</li>
                 </ul>
               </div>
             </div>

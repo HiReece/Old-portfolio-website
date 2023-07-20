@@ -24,7 +24,7 @@
     height: clamp(768px, 100vh, 100vh);
     position: relative;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     flex-direction: column; 
     max-width: 1440px;
     margin-left: auto;
@@ -34,7 +34,7 @@
 @media only screen and (max-width: 768px)
 {
     .hero-container{
-        justify-content: center;
+        justify-content: flex-end;
         margin-left: var(--container-negative-margin-mobile);
         margin-right: var(--container-negative-margin-mobile);
         padding-left: var(--container-padding-mobile);
@@ -58,14 +58,13 @@
 {
     .hero-heading-container{
         justify-content: center;
-        padding-bottom: 30px;
     }
 }
 
 .hero-heading{
     color: var(--primary-text-color);
     font-size: 98px;
-    line-height: 1.2;
+    line-height: 1.1;
     text-align: center;
 }
 
@@ -76,7 +75,7 @@
     }
 }
 
-@media only screen and (max-width: 480px)
+@media only screen and (max-width: 768px)
 {
     .hero-heading{
         font-size: 46px;
@@ -86,7 +85,7 @@
 }
 
 .greeting{
-    color: #96F0FE;/*#77E6FE;*/
+    color: #96F0FE;/* #96F0FE;*/
     animation-name: opacityUp;
     animation-duration: 6s;
     animation-fill-mode: forwards;
@@ -109,35 +108,43 @@
     }
 }
 
-.hero-animation-container{
-    align-items: center;
-    display: flex;
-    justify-content: flex-end;
-    position: relative;
-    flex-grow: 1;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    z-index: 0;
+.hero-subheading-container{
+    max-width: 640px;
+    padding-top: 40px;
 }
 
-@media only screen and (max-width: 768px){ 
-    .hero-animation-container{
-        justify-content: flex-start;
-        height: auto;
-        position: relative;
-    }  
+@media screen and (max-width: 768px){
+    .hero-subheading-container{
+        max-width: 100%;
+        padding-top: 30px;
+    }
+    
+}
+
+.hero-subheading{
+    color: var(--menthol);
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px){
+    .hero-subheading{
+        font-size: 20px; 
+    }
+    
 }
 
 .cta-container{
-    margin-top: 60px;
+    margin-top: 50px;
+    margin-bottom: clamp(90px, 14vh, 14vh);
 }
 
 @media screen and (max-width: 480px){
     .cta-container{
       min-width: 100%;
-      margin-top: 0px;
+      margin-top: 60px;
+      margin-bottom: clamp(90px, 20vh, 20vh);
     }
 }
 
@@ -145,7 +152,7 @@
     background-color: var(--bright-green);
     display: block;
     padding: 16px 60px; 
-    border-radius: 10px;
+    border-radius: 15px;
     text-decoration: none;
     color: #333333;
     font-weight: 700;

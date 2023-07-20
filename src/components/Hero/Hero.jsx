@@ -1,8 +1,7 @@
 import * as React from "react"
 import { useEffect, useState } from "react"
-import {heroWrapper, heroContainer, heroHeadingContainer, heroHeading,
-        greeting, heroAnimationContainer, textBrightGreen, ctaButton, ctaContainer} from "./Hero.module.css"
-import Illustration from "../Illustration/Illustration"
+import {heroWrapper, heroContainer, heroHeadingContainer, heroHeading, heroSubheadingContainer, heroSubheading,
+        greeting, textBrightGreen, ctaButton, ctaContainer} from "./Hero.module.css"
 
 const Hero = ({ ctaLink }) => {
     const greetings = ["hello", "labas", "bonjour", "hallo", "ciao", "привіт", "hola", "habari", "こんにちは", "witam", "ahoj", "tere", "hallå", "hei", "你好", "merhaba"]
@@ -26,8 +25,11 @@ const Hero = ({ ctaLink }) => {
                 Say&nbsp; 
                 <span className={greeting} key={greetingIndex}>{greetings[greetingIndex]}</span><br />
                 to your<br />
-                <span className={textBrightGreen} >new website</span>
+                <span>new website</span>
               </h1>
+            </div>
+            <div className={heroSubheadingContainer}>
+              <h2 className={heroSubheading}>Website and landing page development, performance and conversion optimization</h2>
             </div>
             <div className={ctaContainer}>
               <a className={ctaButton} href={ctaLink} rel="nofollow">CONTACT</a>
