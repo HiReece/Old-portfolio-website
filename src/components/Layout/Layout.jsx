@@ -174,18 +174,18 @@ const Layout = () => {
           <section className={layoutStyles.portfolioContainer} id="portfolio">
             <h2 className={`${layoutStyles.text} ${layoutStyles.sectionHeading} ${layoutStyles.portfolioHeading} ${layoutStyles.textAlignCenter}`}>Past work:</h2>
             <div className={layoutStyles.portfolio}>
-              {portfolio.map( item => (
-              <div className={layoutStyles.portfolioItem} key={item.itemId}>
+              {portfolio.map( (item, index) => (
+              <div className={layoutStyles.portfolioItem} key={item.itemId} style={{backgroundColor: `${item.topColor}`, zIndex: `${index-6}`}}>
+                  <div className={layoutStyles.portfolioInfoBlock}>
+                    <div className={layoutStyles.mainInfo}>
+                        <h2 className={`${layoutStyles.portfolioHeading} ${layoutStyles.backgroundBlock}`}>{item.description}</h2>
+                        <p className={`${layoutStyles.portfolioTechStack} ${layoutStyles.backgroundBlock}`}>{item.techStack}</p>
+                    </div>
+                    <a className ={`${layoutStyles.portfolioLink} ${layoutStyles.backgroundBlock}`} rel="noreferrer noopener nofollow" href={item.link} target="_blank">Check it out -&gt;</a>
+                </div>
                 <div className={layoutStyles.topPolygon} style={{transform: `rotate(-${rotationDegrees[item.itemId-1]}deg)`, backgroundColor: `${item.topColor}`}} ref={el => refs.current[item.itemId] = el}></div>
                 <GatsbyImage imgClassName={layoutStyles.portfolioImage} className={layoutStyles.portfolioImageWrapper} image={item[portfolioImage].gatsbyImageData} alt={item.imageAltText} />
                 <div className={layoutStyles.bottomPolygon} style={{backgroundColor: `${item.bottomColor}`}}></div>
-                <div className={layoutStyles.portfolioInfoBlock}>
-                  <div className={layoutStyles.mainInfo}>
-                      <h2 className={`${layoutStyles.portfolioHeading} ${layoutStyles.backgroundBlock}`}>{item.description}</h2>
-                      <p className={`${layoutStyles.portfolioTechStack} ${layoutStyles.backgroundBlock}`}>{item.techStack}</p>
-                  </div>
-                    <a className ={`${layoutStyles.portfolioLink} ${layoutStyles.backgroundBlock}`} rel="noreferrer noopener nofollow" href={item.link} target="_blank">Check it out -&gt;</a>
-                </div>
               </div>
               ))}
             </div>

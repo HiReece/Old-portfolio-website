@@ -60,7 +60,7 @@ body{
     height: clamp(680px, 46vw, 46vw);
     top: clamp(400px, 50vh, 50vh);
     left: 0;
-    z-index: -1;
+    z-index: -11;
     
 }
 
@@ -78,7 +78,7 @@ body{
     height: 30px;
     left: 66vw;
     top: clamp(920px, 144vh, 144vh);
-    z-index: 0;
+    z-index: -10;
 }
 
 .circle3{
@@ -86,7 +86,7 @@ body{
     height: clamp(660px, 60vw, 60vw);
     top: clamp(1636px, 220vh, 220vh);
     left: 66%;
-    z-index: -1;
+    z-index: -11;
 }
 
 @media only screen and (max-width: 480px){
@@ -103,7 +103,7 @@ body{
     left: 60%;
     top: clamp(2304px, 338vh, 338vh);
     width: clamp(700px, 100vw, 100vw);
-    z-index: -1;
+    z-index: -11;
     display: none;
 }
 
@@ -122,7 +122,7 @@ body{
     left: clamp(-910px, -60%, -60%);
     top: clamp(2304px, 342vh, 342vh);
     width: clamp(120px, 8vw, 19vw);
-    z-index: -1;
+    z-index: -11;
 }
 
 @media only screen and (max-width: 480px){
@@ -139,7 +139,7 @@ body{
     left: clamp(-280px, -30%, -30%);
     top: clamp(2304px, 352vh, 352vh);
     width: clamp(46px, 2.8vw, 19vw);
-    z-index: -1;
+    z-index: -11;
 }
 
 @media only screen and (max-width: 480px){
@@ -353,13 +353,18 @@ body{
 }
 
 .portfolio-item{
+    background-color: red;
     position: relative;
-    margin-bottom: clamp(300px, 30vh, 30vh);
+    margin-bottom: clamp(200px, 20vh, 20vh);
+    margin-left: var(--container-negative-margin-desktop);
+    margin-right: var(--container-negative-margin-desktop);
 }
 
 @media only screen and (max-width: 480px){
     .portfolio-item{
         margin-bottom: 100px;
+        margin-left: var(--container-negative-margin-mobile);
+        margin-right: var(--container-negative-margin-mobile);
     }
 }
 
@@ -369,8 +374,6 @@ body{
     width: 120vw;
     height: clamp(500px, 40vh, 40vh);
     background-color: yellow;
-    margin-left: var(--container-negative-margin-desktop);
-    margin-right: var(--container-negative-margin-desktop);
     transform: rotate(0);
     transform-origin: top left;
     z-index: -1;
@@ -379,8 +382,6 @@ body{
 
 @media only screen and (max-width: 480px){
     .top-polygon{
-        margin-left: var(--container-negative-margin-mobile);
-        margin-right: var(--container-negative-margin-mobile);
         width: 130vw;
     }
 }
@@ -391,8 +392,6 @@ body{
     width: calc(100vw);
     height: clamp(600px, 80vh, 80vh);
     background-color: greenyellow;
-    margin-right: var(--container-negative-margin-desktop);
-    margin-left: var(--container-negative-margin-desktop);
     transform: rotate(0);
     transform-origin: bottom left;
     z-index: -1;
@@ -401,16 +400,10 @@ body{
 @media only screen and (max-width: 480px){
     .bottom-polygon{
         bottom: -100px;
-        margin-left: var(--container-negative-margin-mobile);
-        margin-right: var(--container-negative-margin-mobile);
     }
 }
 
-
-
 .portfolio-image-wrapper{
-    margin-left: var(--container-negative-margin-desktop);
-    margin-right: var(--container-negative-margin-desktop);
     min-width: 100vw;
     z-index: 0;
     min-height: calc(100vw/1.5)
@@ -422,8 +415,6 @@ body{
 
 @media only screen and (max-width: 480px){
     .portfolio-image-wrapper{
-        margin-left: var(--container-negative-margin-mobile);
-        margin-right: var(--container-negative-margin-mobile);
         min-width: 100vw;
     }
 }
@@ -434,10 +425,10 @@ body{
     display: flex;
     position: relative;
     justify-content: space-between;
-    margin-left: var(--container-negative-margin-desktop);
-    margin-right: var(--container-negative-margin-desktop);
     padding-left: 30px;
     padding-right: 30px;
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 
 @media only screen and (max-width: 1024px){
@@ -446,13 +437,6 @@ body{
         flex-direction: column;
         padding-left: 6px;
         padding-right: 6px;
-    }
-}
-
-@media only screen and (max-width: 480px){
-    .portfolio-info-block{
-        margin-left: var(--container-negative-margin-mobile);
-        margin-right: var(--container-negative-margin-mobile);
     }
 }
 
