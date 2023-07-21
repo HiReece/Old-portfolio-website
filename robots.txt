@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: *
+Sitemap: https://ubalticmaster.gatsbyjs.io/Portfolio-website/sitemap-index.xml
+Host: https://ubalticmaster.gatsbyjs.io
