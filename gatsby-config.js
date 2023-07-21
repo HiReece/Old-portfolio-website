@@ -9,6 +9,7 @@ module.exports = {
     title: `Ubaltic`,
     siteUrl: `https://www.yourdomain.tld`
   },
+  pathPrefix: "/Portfolio-website",
   plugins: ["gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp",  
   {
     resolve: `gatsby-source-contentful`,
