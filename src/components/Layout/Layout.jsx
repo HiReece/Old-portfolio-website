@@ -172,10 +172,9 @@ const Layout = () => {
           </div>
     
           <section className={layoutStyles.portfolioContainer} id="portfolio">
-            <h2 className={`${layoutStyles.text} ${layoutStyles.sectionHeading} ${layoutStyles.portfolioHeading} ${layoutStyles.textAlignCenter}`}>Past work:</h2>
-            <div className={layoutStyles.portfolio}>
+            <h2 className={`${layoutStyles.text} ${layoutStyles.sectionHeading} ${layoutStyles.portfolioHeading} ${layoutStyles.textAlignCenter}`}>Projects:</h2>
               {portfolio.map( (item, index) => (
-              <div className={layoutStyles.portfolioItem} key={item.itemId} style={{backgroundColor: `${item.topColor}`, zIndex: `${index-6}`}}>
+              <div className={layoutStyles.portfolioItem} key={item.itemId} style={{backgroundColor: `${item.topColor}`, zIndex: `${index}`}}>
                   <div className={layoutStyles.portfolioInfoBlock}>
                     <div className={layoutStyles.mainInfo}>
                         <h2 className={`${layoutStyles.portfolioHeading} ${layoutStyles.backgroundBlock}`}>{item.description}</h2>
@@ -188,7 +187,6 @@ const Layout = () => {
                 <div className={layoutStyles.bottomPolygon} style={{backgroundColor: `${item.bottomColor}`}}></div>
               </div>
               ))}
-            </div>
           </section>
           <footer className={layoutStyles.footerContainer} id="contact">
             <div className={layoutStyles.ctaContainer}>
