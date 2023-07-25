@@ -106,7 +106,6 @@ const Layout = () => {
     currentScrollPos > prevScrollPos && currentScrollPos > 100 ? setNavbarHidden(true) : setNavbarHidden(false) 
     setPrevScrollPos(currentScrollPos)
 
-    console.log("Is navbar at the top rn: " + isNavbarAtTheTop)
     // Navbar link font gets smaller when scroll from the top value is lower than window's inner height
     containerRef.current.scrollTop > window.innerHeight*0.95 ? setNavbarAtTheTop(false) : setNavbarAtTheTop(true)
   }
