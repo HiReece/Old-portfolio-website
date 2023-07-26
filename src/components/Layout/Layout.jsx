@@ -12,7 +12,10 @@ import { routes } from "../../routes.json"
 const Layout = () => {
   const data = useStaticQuery(graphql`
     query {
-      allContentfulPortfolioItem(sort: {itemId: ASC}) {
+      allContentfulPortfolioItem(
+        sort: {itemId: ASC}
+        filter: {node_locale: {eq: "en-US"}}
+        ) {
         nodes {
           itemId
           bottomColor
