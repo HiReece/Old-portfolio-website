@@ -6,6 +6,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import Navbar from "../Navbar/Navbar"
 import Hero from "../Hero/Hero"
 import Banner from "../Banner/Banner"
+import Portfolio from "../Portfolio/Portfolio"
 import { routes } from "../../routes.json"
 
 
@@ -62,7 +63,7 @@ const Layout = () => {
   const refs = useRef([])
   const footerPolygonRef = useRef()
   const containerRef = useRef()
-  let [prevScrollPos, setPrevScrollPos] = useState(0)
+  const [prevScrollPos, setPrevScrollPos] = useState(0)
 
 
 
@@ -138,10 +139,10 @@ const Layout = () => {
           <div className={`${layoutStyles.bgCircle} ${layoutStyles.parallaxLayer3} ${layoutStyles.circle5} ${layoutStyles.bgColorBabyBlueEyes}`}></div>
           <div className={`${layoutStyles.bgCircle} ${layoutStyles.parallaxLayer2} ${layoutStyles.circle6} ${layoutStyles.bgColorFrenchSkyBlue}`}></div>
           <div className={`${layoutStyles.bendyLine} ${layoutStyles.parallaxLayer0}`}>
-              <svg viewBox="0 0 136 709" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M67.7244 5C20.3911 73.5 -45.8756 239.8 67.7244 357C181.324 474.2 115.058 637.167 67.7244 704" />
-              </svg>
-            </div>
+            <svg viewBox="0 0 136 709" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M67.7244 5C20.3911 73.5 -45.8756 239.8 67.7244 357C181.324 474.2 115.058 637.167 67.7244 704" />
+            </svg>
+          </div>
 
           <section className={layoutStyles.introductionContainer}>
             <div className={layoutStyles.introduction} id="introduction">
@@ -169,26 +170,13 @@ const Layout = () => {
             </div>
           </section>
 
-          <div className={layoutStyles.decorationBlock}>
-          </div>
-    
+          <div className={layoutStyles.decorationBlock}></div>
+          
           <section className={layoutStyles.portfolioContainer} id="portfolio">
             <h2 className={`${layoutStyles.text} ${layoutStyles.sectionHeading} ${layoutStyles.portfolioHeading} ${layoutStyles.textAlignCenter}`}>Projects:</h2>
-              {portfolio.map( (item, index) => (
-              <div className={layoutStyles.portfolioItem} key={item.itemId} style={{backgroundColor: `${item.topColor}`, zIndex: `${index}`}}>
-                  <div className={layoutStyles.portfolioInfoBlock}>
-                    <div className={layoutStyles.mainInfo}>
-                        <h2 className={`${layoutStyles.portfolioHeading} ${layoutStyles.backgroundBlock}`}>{item.description}</h2>
-                        <p className={`${layoutStyles.portfolioTechStack} ${layoutStyles.backgroundBlock}`}>{item.techStack}</p>
-                    </div>
-                    <a className ={`${layoutStyles.portfolioLink} ${layoutStyles.backgroundBlock}`} rel="noreferrer noopener nofollow" href={item.link} target="_blank">Check it out -&gt;</a>
-                </div>
-                <div className={layoutStyles.topPolygon} style={{transform: `rotate(-${rotationDegrees[item.itemId-1]}deg)`, backgroundColor: `${item.topColor}`}} ref={el => refs.current[item.itemId] = el}></div>
-                <GatsbyImage imgClassName={layoutStyles.portfolioImage} className={layoutStyles.portfolioImageWrapper} image={item[portfolioImage].gatsbyImageData} alt={item.imageAltText} />
-                <div className={layoutStyles.bottomPolygon} style={{backgroundColor: `${item.bottomColor}`}}></div>
-              </div>
-              ))}
+            <Portfolio portfolio={portfolio} imageType={portfolioImage} rotationDegrees={rotationDegrees} refs={refs} />  
           </section>
+          
           <footer className={layoutStyles.footerContainer} id="contact">
             <div className={layoutStyles.ctaContainer}>
               <div className={layoutStyles.topPolygon} style={{transform: `rotate(-${footerPolygonRotationDegrees}deg)`,  backgroundColor: "#EA549E"}} ref={el => footerPolygonRef.current = el}></div>

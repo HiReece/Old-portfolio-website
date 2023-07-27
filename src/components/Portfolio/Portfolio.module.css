@@ -1,0 +1,127 @@
+@import "../../styles/variables.css";
+
+.portfolio-item{
+    position: relative;
+    margin-bottom: clamp(200px, 20vh, 20vh);
+}
+
+@media only screen and (max-width: 480px){
+    .portfolio-item{
+        margin-bottom: 100px;
+    }
+}
+
+.portfolio-info-block{
+    align-items: flex-end;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+@media only screen and (max-width: 1024px){
+    .portfolio-info-block{
+        align-items: flex-start;
+        flex-direction: column;
+        padding-left: 6px;
+        padding-right: 6px;
+    }
+}
+
+.portfolio-heading{
+    color: #333333;
+    font-weight: 400;
+}
+
+.portfolio-tech-stack{
+    margin-top: 6px;
+    color: #333333;
+    font-weight: 400;
+    padding-top: 8px;
+    padding-left: 10px;
+    padding-right: 20px;
+}
+
+.background-block{
+    background-color: var(--bright-green);
+    padding-left: 14px;
+    padding-right: 14px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    width: fit-content;
+}
+
+.portfolio-link{
+    color: #333333;
+    display: block;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-underline-offset: 4px;
+    transition: color 0.25s ;
+}
+
+.portfolio-link:hover{
+    color: var(--light-cyan);
+}
+
+@media only screen and (max-width: 1024px){
+    .portfolio-link{
+        margin-top: 36px;
+    }
+}
+
+.top-polygon{
+    position: absolute;
+    top: 0px;
+    width: 120vw;
+    height: clamp(500px, 40vh, 40vh);
+    background-color: yellow;
+    transform: rotate(0);
+    transform-origin: top left;
+    z-index: -1;
+    transition: transform 0.05s;
+}
+
+@media only screen and (max-width: 480px){
+    .top-polygon{
+        width: 130vw;
+    }
+}
+
+.bottom-polygon{
+    position: absolute;
+    bottom: -50vh;
+    width: calc(100vw);
+    height: clamp(600px, 80vh, 80vh);
+    background-color: greenyellow;
+    transform: rotate(0);
+    transform-origin: bottom left;
+    z-index: -1;
+}
+
+@media only screen and (max-width: 480px){
+    .bottom-polygon{
+        bottom: -100px;
+    }
+}
+
+.portfolio-image-wrapper{
+    min-width: 100vw;
+    z-index: 0;
+    min-height: calc(100vw/1.5)
+}
+
+.portfolio-image-wrapper .portfolio-image-style{
+    height: auto;
+}
+
+@media only screen and (max-width: 480px){
+    .portfolio-image-wrapper{
+        min-width: 100vw;
+    }
+}
