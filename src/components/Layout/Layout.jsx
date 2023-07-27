@@ -99,6 +99,7 @@ const Layout = () => {
        // Checks if topPolygonDegrees value is not larger than degree by which rectangle is tilted and no smaller than 0.
       topPolygonDegrees > maxDegreesTop ? filteredTopPolygonDegrees.push(maxDegreesTop) : topPolygonDegrees < 0 ? filteredTopPolygonDegrees.push(0) : filteredTopPolygonDegrees.push(topPolygonDegrees)
       footerPolygonDegrees > maxDegreesTop ? filteredFooterPolygonDegrees = maxDegreesTop : footerPolygonDegrees < 0 ? filteredFooterPolygonDegrees = 0 : filteredFooterPolygonDegrees = footerPolygonDegrees
+      return(1)
     })
 
     setTopPolygonRotationDegrees([...filteredTopPolygonDegrees])
@@ -115,11 +116,9 @@ const Layout = () => {
 
   useLayoutEffect(() => {
     if (typeof window !== "undefined") {
-      containerRef.current.addEventListener("scroll", handleScroll)
       window.addEventListener("resize", handleResize)
   
       return () => {
-        containerRef.current.removeEventListener("scroll", handleScroll)
         window.removeEventListener("resize", handleResize)
       };
     }
@@ -129,7 +128,7 @@ const Layout = () => {
     return (
       <>
         <Navbar navbarHidden={navbarHidden} isNavbarAtTheTop={isNavbarAtTheTop} routes={routes}/>
-        <div className={layoutStyles.container} ref={containerRef}>
+        <div className={layoutStyles.container} ref={containerRef} onScroll={handleScroll}>
           <Hero ctaLink={page.ctaLink} />
           <Banner bannerImages={bannerImages} />
           <div className={`${layoutStyles.bgCircle} ${layoutStyles.parallaxLayer1} ${layoutStyles.circle1} ${layoutStyles.bgColorBabyBlueEyes}`}></div>
